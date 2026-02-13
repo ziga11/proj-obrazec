@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <script type="module" src="/src/login/main.ts" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>Welcome</h1>
+            <p>Sign in to continue</p>
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <div id="loading" class="loading">
+            Loading...
+        </div>
+
+        <div id="login-form" style="display: none;">
+            <div id="buttonDiv"></div>
+        </div>
+
+        <div id="user-info" class="user-info">
+            <h2>Welcome back!</h2>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <button id="logout-btn" class="logout-btn">Sign Out</button>
+        </div>
+    </div>
+</body>
+
+</html>

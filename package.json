@@ -1,0 +1,27 @@
+{
+    "name": "proj-obrazec",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build:frontend": "vite build",
+        "build": "npm run build:frontend",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@types/formidable": "^3.4.5",
+        "@types/google-one-tap": "^1.2.7",
+        "@types/node": "^24.6.2",
+        "@types/pg": "^8.15.5",
+        "@types/tinymce": "^4.6.9",
+        "typescript": "~5.8.3",
+        "vite": "^7.1.7"
+    },
+    "dependencies": {
+        "concurrently": "^9.2.1",
+        "firebase": "^12.3.0",
+        "path": "^0.12.7",
+        "tinymce": "^8.1.2",
+        "ts-node": "^10.9.2"
+    }
+}

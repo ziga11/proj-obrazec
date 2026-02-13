@@ -1,0 +1,30 @@
+.label-title {
+	font-size: 18px;
+}
+
+.vertical-row {
+	flex: 5;
+	margin-right: 2%;
+	margin-bottom: 1%;
+	width: 90%;
+}
+
+#salary-container {
+	display: flex;
+	gap: 40px;
+}
+
+.btn-close {
+	filter: invert(1) saturate(2);
+}
+
+.submit-btn {
+	background-color: var(--teal);
+}
+
+.table tbody tr td:last-child {
+	width: 1%;
+	text-align: center;
+	white-space: nowrap;
+	padding: 0 1em;
+}

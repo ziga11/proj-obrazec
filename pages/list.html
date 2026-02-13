@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seznam projektov</title>
+    <link rel="stylesheet" href="/styles/list.css">
+    <link rel="stylesheet" href="/styles/style.css">
+
+    <script type="module" src="/src/list-projects/main.ts" defer></script>
+</head>
+
+<body>
+    <div class="user-menu">
+        <button class="user-button" id="user-menu-btn">
+            <img src="" class="user-avatar" id="user-avatar">
+            <span id="user-name">Loading...</span>
+            <span class="chevron">▼</span>
+        </button>
+        <div class="user-dropdown" id="user-dropdown" style="display: none;">
+            <button class="logout-btn" id="logout-btn">Odjava</button>
+        </div>
+    </div>
+
+    <div id="loader" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <span id="status-text">Connecting to server...</span>
+        <button id="retry-btn" style="display: none; margin-top: 10px;">Try Again</button>
+    </div>
+
+    <div class="project-page-layout">
+        <h1>Seznam projektov</h1>
+        <div class="table-container">
+            <table class="table table-borderless table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th><b>Projekt</b></th>
+                        <th><b>Nosilec v HR Procesih</b></th>
+                        <th><b>Nosilec v Obračunu plač</b></th>
+                        <th><b>Datum Ustvarjanja</b></th>
+                        <th style="width: 100px;"></th>
+                    </tr>
+                </thead>
+                <tbody class="project-list">
+                </tbody>
+            </table>
+        </div>
+        <button class="add-project-button" onclick="window.location.href='/pages/create.html'">
+            Dodaj projekt
+        </button>
+    </div>
+</body>
+
+</html>

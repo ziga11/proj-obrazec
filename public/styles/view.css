@@ -1,0 +1,33 @@
+.preview-button {
+        background: var(--pink);
+        color: var(--white);
+        width: 40%;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.3s;
+}
+
+.preview-button:hover {
+        filter: brightness(1.2) hue-rotate(25deg);
+        transform: scale(1.1);
+        box-shadow: 0 12px 12px rgba(0.8, 0.8, 0.8, 0.4);
+}
+
+.form-control:disabled {
+        background-color: var(--secondary-purple) !important;
+}
+
+.split-div .default-btn {
+        margin-top: 0.5rem;
+}
+
+.form-check-input[disabled],
+.form-check-input[disabled]~.form-check-label {
+        opacity: 1 !important;
+}
+
+img {
+        max-width: 100%;
+        max-height: 100%;
+}

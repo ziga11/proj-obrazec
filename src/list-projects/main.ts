@@ -1,5 +1,5 @@
 import { ProjectService } from "../fetch";
-import type { ProjectPreview } from "../types";
+import { projectPermission, type ProjectPreview } from "../types";
 import "./profile"
 
 const listDiv = document.querySelector('.project-list') as HTMLDivElement;
@@ -42,12 +42,17 @@ function rowEvents(row: HTMLTableRowElement, project: ProjectPreview) {
         });
 
         const deleteBtn = row.children[row.children.length - 1].firstChild as HTMLButtonElement;
-        deleteBtn.addEventListener("click", async (e: Event) => {
-                e.stopPropagation();
+        if (project.permission_id !== projectPermission.All) {
+                deleteBtn.disabled = true;
+        }
+        else {
+                deleteBtn.addEventListener("click", async (e: Event) => {
+                        e.stopPropagation();
 
-                row.remove();
-                await ProjectService.delete(project.id!);
-        })
+                        row.remove();
+                        await ProjectService.delete(project.id!);
+                })
+        }
 }
 
 function createRow(project: ProjectPreview) {
@@ -71,6 +76,7 @@ function createRow(project: ProjectPreview) {
                 td.append(b);
                 row.append(td);
         }
+
         const td = document.createElement("td");
         td.innerHTML = `<button class="remove-row-btn">Odstrani</button>`
         row.appendChild(td);

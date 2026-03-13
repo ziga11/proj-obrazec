@@ -91,6 +91,24 @@ export const ProjectService = {
                 return await response.blob();
         },
 
+        async addedAccountsToProject(projectId: number): Promise<Array<Account>> {
+                return await apiRequest<Array<Account>>(`/project-accounts/${projectId}`);
+        },
+
+        async addUserToProject(projectId: number, email: string, permissionId: number): Promise<void> {
+                await apiRequest<{ projectId: number }>('/add-account-to-project', {
+                        method: 'POST',
+                        body: JSON.stringify({ "project_id": projectId, "email": email, "permission_id": permissionId }),
+                });
+        },
+
+        async removeUserFromProject(projectId: number, accountId: number): Promise<void> {
+                await apiRequest<{ projectId: number }>('/remove-account-to-project', {
+                        method: 'POST',
+                        body: JSON.stringify({ "project_id": projectId, "account_id": accountId }),
+                });
+        },
+
         async downloadFile(filePath: string) {
                 const blob = await this.fetchBlob(filePath);
                 const url = URL.createObjectURL(blob);

@@ -5,12 +5,19 @@ export interface Form {
         children?: Record<string, Form>
 }
 
+export const projectPermission = {
+        View: 1,
+        Modify: 2,
+        All: 3,
+}
+
 export interface Project {
         id?: number;
         creator_id?: number;
         title?: string;
         date_created?: string;
         json?: Record<string, Record<string, Form>>;
+        permission_id: number;
 }
 
 export interface ProjectPreview {
@@ -19,6 +26,7 @@ export interface ProjectPreview {
         title?: string;
         date_created?: string;
         json?: Record<string, Form>;
+        permission_id: number;
 }
 
 export const PageOrigin = {

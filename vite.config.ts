@@ -9,7 +9,8 @@ export default defineConfig({
                                 create: resolve(__dirname, 'pages/create.html'),
                                 edit: resolve(__dirname, 'pages/modify.html'),
                                 list: resolve(__dirname, 'pages/list.html'),
-                                view: resolve(__dirname, 'pages/view.html')
+                                view: resolve(__dirname, 'pages/view.html'),
+                                login: resolve(__dirname, 'pages/login.html')
                         },
                 },
         },

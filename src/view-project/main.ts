@@ -1,19 +1,28 @@
 import "./events";
 import { ProjectService } from "../fetch";
-import { PageOrigin, type Field, type Form } from "../types";
+import { PageOrigin, projectPermission, type Field, type Form } from "../types";
 import { addClientRow, addExtraFields, addReportRow, addRiskRow, addSalaryRow } from "../addFields";
-import { editButton, projectTitle } from "./html";
+import { editButton, manageButton, projectTitle } from "./html";
 import { setVisibilityCheckbox } from "../utils";
 
 const params = new URLSearchParams(window.location.search);
 const projectId = Number(params.get("id") as string);
+
 const project = await ProjectService.fetch(projectId);
 
 projectTitle.innerText = project.title!;
+localStorage.setItem("creator_id", `${project.creator_id}`);
+localStorage.setItem("permission_id", `${project.permission_id}`);
 
-editButton.addEventListener("click", () => {
-        window.location.href = `/pages/modify.html?id=${projectId}`
-});
+if (project.permission_id == projectPermission.View) {
+        editButton.disabled = true;
+        editButton.style.display = "none";
+}
+
+if (project.permission_id != projectPermission.All) {
+        manageButton.disabled = true;
+        manageButton.style.display = "none";
+}
 
 const specificsForm = project.json!.dodatne_specifike_ifr.tinymce;
 delete project.json!.dodatne_specifike_ifr;

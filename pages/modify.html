@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Procesi Form</title>
+    <title>HR Process Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="/styles/modify.css">
@@ -17,41 +17,41 @@
 
 <body>
     <div class="nav-buttons-div">
-        <button type="button" id="back-button" onclick="history.back()">Nazaj</button>
+        <button type="button" id="back-button" onclick="history.back()">Back</button>
     </div>
     <div class="container my-5">
-        <h1><b>Projektni obrazec - HR Procesi</b></h1>
+        <h1><b>Project Form - HR Processes</b></h1>
         <form action="/pages/list.html" method="post">
             <div class="basic-info" data-group="osnovni_podatki">
                 <div class="basic-info-grid">
                     <div>
-                        <label><b>Projekt</b></label>
+                        <label><b>Project</b></label>
                         <input id="project" type="text" class="form-control form-control-sm">
                     </div>
                     <div purposefully-empty></div>
                     <div purposefully-empty></div>
                     <div>
-                        <label><b>Naslov</b></label>
+                        <label><b>Address</b></label>
                         <input id="naslov" type="text" class="form-control form-control-sm">
                     </div>
                     <div>
-                        <label><b>Matična številka</b></label>
+                        <label><b>Registration Number</b></label>
                         <input id="maticna_stevilka" type="text" class="form-control form-control-sm">
                     </div>
                     <div>
-                        <label><b>Davčna števila</b></label>
+                        <label><b>Tax ID</b></label>
                         <input id="davcna_stevilka" type="text" class="form-control form-control-sm">
                     </div>
                     <div>
-                        <label><b>Nosilec v HR Procesih</b></label>
+                        <label><b>HR Process Owner</b></label>
                         <input id="nosilec_v_hr_procesih" type="text" class="form-control form-control-sm">
                     </div>
                     <div>
-                        <label><b>Nosilec v Obračunu plač</b></label>
+                        <label><b>Payroll Lead</b></label>
                         <input id="nosilec_v_obracunu_plac" type="text" class="form-control form-control-sm">
                     </div>
                     <div>
-                        <label><b>HR Direktor</b></label>
+                        <label><b>HR Director</b></label>
                         <input id="hr_direktor" type="text" class="form-control form-control-sm">
                     </div>
                 </div>
@@ -60,385 +60,376 @@
                 <table class="table table-borderless table-sm table-hover">
                     <thead>
                         <tr>
-                            <th>Vloga osebe</th>
-                            <th>Ime in priimek</th>
-                            <th>Telefon</th>
+                            <th>Personnel Role</th>
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
                             <th>E-Mail</th>
                             <th style="width: 100px;"></th>
                         </tr>
                     </thead>
                     <tbody id="client-tbody">
                         <tr>
-                            <td>Kadrovski direktor naročnika</td>
+                            <td>Client HR Director</td>
                             <td><input id="ime_kadrovski_direktor_narocnika" type="text"
                                     class="form-control form-control-sm"></td>
                             <td><input id="telefon_kadrovski_direktor_narocnika" type="text"
                                     class="form-control form-control-sm"></td>
                             <td><input id="mail_kadrovski_direktor_narocnika" type="text"
                                     class="form-control form-control-sm"></td>
-                            <td><button class="default-btn remove-row-btn" type="button" disabled>Odstrani</button>
+                            <td><button class="default-btn remove-row-btn" type="button" disabled>Remove</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Payroll naročnika</td>
+                            <td>Client Payroll Representative</td>
                             <td><input id="ime_payroll_narocnika" type="text" class="form-control form-control-sm"></td>
                             <td><input id="telefon_payroll_narocnika" type="text" class="form-control form-control-sm">
                             </td>
                             <td><input id="mail_payroll_narocnika" type="text" class="form-control form-control-sm">
                             </td>
-                            <td><button class="default-btn remove-row-btn" type="button" disabled>Odstrani</button>
+                            <td><button class="default-btn remove-row-btn" type="button" disabled>Remove</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Finance naročnika</td>
+                            <td>Client Finance Representative</td>
                             <td><input id="ime_finance_narocnika" type="text" class="form-control form-control-sm"></td>
                             <td><input id="telefon_finance_narocnika" type="text" class="form-control form-control-sm">
                             </td>
                             <td><input id="mail_finance_narocnika" type="text" class="form-control form-control-sm">
                             </td>
-                            <td><button class="default-btn remove-row-btn" type="button" disabled>Odstrani</button>
+                            <td><button class="default-btn remove-row-btn" type="button" disabled>Remove</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Kontaktna oseba kadrovanja</td>
+                            <td>Recruitment Contact Person</td>
                             <td><input id="ime_kontaktna_oseba_kadrovanja" type="text"
                                     class="form-control form-control-sm"></td>
                             <td><input id="telefon_kontaktna_oseba_kadrovanja" type="text"
                                     class="form-control form-control-sm"></td>
                             <td><input id="mail_kontaktna_oseba_kadrovanja" type="text"
                                     class="form-control form-control-sm"></td>
-                            <td><button class="default-btn remove-row-btn" type="button" disabled>Odstrani</button>
+                            <td><button class="default-btn remove-row-btn" type="button" disabled>Remove</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="default-btn" id="add_client_info">Dodaj polje</button>
+                <button type="button" class="default-btn" id="add_client_info">Add Field</button>
             </div>
             <div class="split-div">
                 <div data-group="obracun_prevoza">
-                    <h4>Obračun prevoza</h4>
+                    <h4>Commuting Reimbursement</h4>
                     <div class="ms-2 inputs-parent">
                         <div class="form-check show-text-and-number-box">
                             <input id="po_kilometrini" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="po_kilometrini">Po kilometrini</label>
+                            <label class="form-check-label" for="po_kilometrini">By Mileage</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="po_kilometrini_dodatne_informacije" class="form-control form-control-sm"
                                         type="text" />
                                     <label for="po_kilometrini_dodatne_informacije">
-                                        Dodatne informacije
+                                        Additional Info
                                     </label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="po_kilometrini_visina_kilometrine" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_kilometrini_visina_kilometrine">Višina kilometrine</label>
+                                    <label for="po_kilometrini_visina_kilometrine">Mileage Rate</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="organiziran_prevoz" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="organiziran_prevoz">Organiziran
-                                prevoz</label>
+                            <label class="form-check-label" for="organiziran_prevoz">Company Organized Transport</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="organiziran_prevoz_dodatne_informacije" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="organiziran_prevoz_dodatne_informacije">Dodatne informacije</label>
+                                    <label for="organiziran_prevoz_dodatne_informacije">Additional Info</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="organiziran_prevoz_visina_potnih_stroskov" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="organiziran_prevoz_visina_potnih_stroskov">Višina potnih
-                                        stroškov</label>
+                                    <label for="organiziran_prevoz_visina_potnih_stroskov">Travel Expenses
+                                        Amount</label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-check show-text-and-number-box">
                             <input id="javni_prevoz" type="checkbox" class="form-check-input">
-                            <label class="form-check-label">Javni prevoz</label>
+                            <label class="form-check-label">Public Transport Reimbursement</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="javni_prevoz_dodatne_informacije" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="javni_prevoz_dodatne_informacije">Dodatne informacije</label>
+                                    <label for="javni_prevoz_dodatne_informacije">Additional Info</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="javni_prevoz_visina_potnih_stroskov" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="javni_prevoz_visina_potnih_stroskov">Višina potnih stroškov</label>
+                                    <label for="javni_prevoz_visina_potnih_stroskov">Reimbursement Rate</label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="show-file-input my-2 file-parent-div">
                             <button id="prevoz_datoteka" type="button" class="default-btn" data-bs-toggle="modal"
-                                data-bs-target="#file-preview-modal">Predogled</button>
+                                data-bs-target="#file-preview-modal">Preview</button>
                             <div class="toggle-visibility">
                                 <div class="outlined-input mt-2">
                                     <input id="transport_file_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-4" id="obracun_prevoza_text">
-                                    <label for="transport_file_obrazlaga">Obrazlaga</label>
+                                    <label for="transport_file_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#add-field-modal">
-                        Dodaj polje
+                        Add Field
                     </button>
                 </div>
 
                 <div data-group="obracun_malice">
-                    <h4>Obračun malice</h4>
+                    <h4>Meal Allowance</h4>
                     <div class="ms-2 inputs-parent">
                         <div class="form-check show-text-and-number-box">
                             <input id="po_opravljenih_dnevih_dela_obracun_malice" type="checkbox"
                                 class="form-check-input">
-                            <label class="form-check-label" for="po_opravljenih_dnevih_dela_obračun_malice">Po
-                                opravljenih dnevih
-                                dela</label>
+                            <label class="form-check-label" for="po_opravljenih_dnevih_dela_obracun_malice">Per days
+                                worked</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="po_opravljenih_dnevih_dela_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="po_opravljenih_dnevih_dela_obrazlaga">Obrazlaga</label>
+                                    <label for="po_opravljenih_dnevih_dela_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="meal_by_work_days_number" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="meal_by_work_days_number">Znesek malice na delovni dan</label>
+                                    <label for="meal_by_work_days_number">Meal allowance per day</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="placna_konstanta" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="plačna_konstanta">Plačna konstanta</label>
+                            <label class="form-check-label" for="placna_konstanta">Payroll Constant</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="placna_konstanta_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="placna_konstanta_obrazlaga">Obrazlaga</label>
+                                    <label for="placna_konstanta_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="placna_konstanta_stevilka" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="placna_konstanta_stevilka">Vrednost plačne konstante</label>
+                                    <label for="placna_konstanta_stevilka">Payroll Constant Value</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="malica_placana_po_dnevu" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="malica_placana_po_dnevu">Malica
-                                plačana po
-                                dnevu</label>
+                            <label class="form-check-label" for="malica_placana_po_dnevu">Meal paid per day</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="malica_placana_po_dnevu_dodatna_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="malica_placana_po_dnevu_dodatna_obrazlaga">Obrazlaga</label>
+                                    <label for="malica_placana_po_dnevu_dodatna_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="malica_placana_po_dnevu_dodatna_stevilka" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="malica_placana_po_dnevu_dodatna_stevilka">Znesek malice na dan</label>
+                                    <label for="malica_placana_po_dnevu_dodatna_stevilka">Meal value per day</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="doplacilo_na_dan" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="doplačilo_na_dan">Doplačilo na
-                                dan</label>
+                            <label class="form-check-label" for="doplacilo_na_dan">Daily Surcharge</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="doplacilo_na_dan_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="doplacilo_na_dan_obrazlaga">Obrazlaga</label>
+                                    <label for="doplacilo_na_dan_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="doplacilo_na_dan_stevilka" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="doplacilo_na_dan_stevilka">Konkretno doplačilo (€)</label>
+                                    <label for="doplacilo_na_dan_stevilka">Daily Surcharge (€)</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="organizirana_malica" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="organizirana_malica">Organizirana
-                                malica</label>
+                            <label class="form-check-label" for="organizirana_malica">Company Provided Meal</label>
                             <div class="toggle-visibility inline-alignment">
                                 <div class="outlined-input">
                                     <input id="organizirana_malica_dodatna_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="organizirana_malica_dodatna_obrazlaga">Obrazlaga</label>
+                                    <label for="organizirana_malica_dodatna_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="organizirana_malica_stevilka" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="organizirana_malica_stevilka">Znesek malice</label>
+                                    <label for="organizirana_malica_stevilka">Meal value</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check">
                             <input id="odtegljaj_malice" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="odtegljaj_malice">Odtegljaj malice</label>
+                            <label class="form-check-label" for="odtegljaj_malice">Meal Deduction</label>
                         </div>
                     </div>
                     <button type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#add-field-modal">
-                        Dodaj polje
+                        Add Field
                     </button>
                 </div>
             </div>
             <div class="split-div">
                 <div data-group="dopust">
                     <label>
-                        <h4>Dopust</h4>
+                        <h4>Annual Leave</h4>
                     </label>
                     <div class="ms-2 inputs-parent">
                         <div class="split-div">
-                            <label class="form-check-label" for="število_dni_osnovnega_dopusta">Število dni osnovnega
-                                dopusta:</label>
+                            <label class="form-check-label" for="stevilo_dni_osnovnega_dopusta">Base Annual Leave
+                                Days:</label>
                             <input id="stevilo_dni_osnovnega_dopusta" type="text" class="form-control form-control-sm"
                                 placeholder="">
                         </div>
                         <div class="split-div">
-                            <label class="form-check-label" for="fond_ur">Fond
-                                ur:</label>
+                            <label class="form-check-label" for="fond_ur">Working Hours Quota:</label>
                             <input id="fond_ur" type="text" class="form-control form-control-sm" placeholder="">
                         </div>
                         <div class="form-check show-text-box">
-                            <input id="tuja_delovna_doba_se_uposteva" type="checkbox" class="form-check-input"
-                                id="tuja_delovna_doba">
-                            <label class="form-check-label" for="tuja_delovna_doba_se_upošteva">Tuja delovna doba se
-                                upošteva</label>
+                            <input id="tuja_delovna_doba_se_uposteva" type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="tuja_delovna_doba_se_uposteva">External years of
+                                service recognized</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="tuja_delovna_doba_se_uposteva_obrazlaga" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="tuja_delovna_doba_se_uposteva_obrazlaga">Obrazlaga</label>
+                                    <label for="tuja_delovna_doba_se_uposteva_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input id="starejsim_delavcem_pripadajo_dodatni_dnevi" type="checkbox"
                                 class="form-check-input">
-                            <label class="form-check-label" for="starejšim_delavcem_pripadajo_dodatni_dnevi">Starejšim
-                                delavcem
-                                pripadajo dodatni dnevi</label>
+                            <label class="form-check-label" for="starejsim_delavcem_pripadajo_dodatni_dnevi">Seniority
+                                leave days (age-based)</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="starejsim_delavcem_pripadajo_dodatni_dnevi_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="starejsim_delavcem_pripadajo_dodatni_dnevi_obrazlaga">Obrazlaga</label>
+                                    <label
+                                        for="starejsim_delavcem_pripadajo_dodatni_dnevi_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input id="dodatek_na_nocno_delo" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="dodatek_na_nočno_delo">Dodatek na nočno
-                                delo</label>
+                            <label class="form-check-label" for="dodatek_na_nocno_delo">Night Shift Premium</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="dodatek_na_nocno_delo_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="dodatek_na_nocno_delo_obrazlaga">Obrazlaga</label>
+                                    <label for="dodatek_na_nocno_delo_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input id="dodatek_na_pogoje_dela" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="dodatek_na_pogoje_dela">Dodatek na pogoje
-                                dela</label>
+                            <label class="form-check-label" for="dodatek_na_pogoje_dela">Working Conditions
+                                Bonus</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="dodatek_na_pogoje_dela_obrazlaga" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="dodatek_na_pogoje_dela_obrazlaga">Obrazlaga</label>
+                                    <label for="dodatek_na_pogoje_dela_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input id="lahko_manjkajo_brez_razloga" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="lahko_manjkajo_brez_razloga">Lahko manjkajo brez
-                                razloga</label>
+                            <label class="form-check-label" for="lahko_manjkajo_brez_razloga">Unexcused absence
+                                allowed</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="lahko_manjkajo_brez_razloga_obrazlaga" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="lahko_manjkajo_brez_razloga_obrazlaga">Obrazlaga</label>
+                                    <label for="lahko_manjkajo_brez_razloga_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input id="otroci_dodatek" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="otroci_dodatek">Otroci - dodatek</label>
+                            <label class="form-check-label" for="otroci_dodatek">Dependents Allowance (Days)</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="otroci_dodatek_obrazlaga" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="otroci_dodatek_obrazlaga">Obrazlaga</label>
+                                    <label for="otroci_dodatek_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input id="invalidi_dodatek" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="invalidi_dodatek">Invalidi - dodatek</label>
+                            <label class="form-check-label" for="invalidi_dodatek">Disabled Allowance (Days)</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="invalidi_dodatek_obrazlaga" type="text"
                                         class="form-control form-control-sm" />
-                                    <label for="invalidi_dodatek_obrazlaga">Obrazlaga</label>
+                                    <label for="invalidi_dodatek_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="my-2 file-parent-div">
                             <button id="dopust_dodaj_dokument" class="default-btn" type="button" data-bs-toggle="modal"
-                                data-bs-target="#file-preview-modal">Predogled</button>
+                                data-bs-target="#file-preview-modal">Preview</button>
                         </div>
                     </div>
                     <button type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#add-field-modal">
-                        Dodaj polje
+                        Add Field
                     </button>
                 </div>
                 <div data-group="izracun_dopusta">
                     <label>
-                        <h4>Izračun dopusta</h4>
+                        <h4>Leave Accrual Calculation</h4>
                     </label>
                     <div class="ms-2 inputs-parent">
                         <div class="form-check show-text-and-number-box">
                             <input id="po_opravljenih_dnevih_dela_dopust" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="po_opravljenih_dnevih_dela_dopust">Po opravljenih
-                                dnevih dela</label>
+                            <label class="form-check-label" for="po_opravljenih_dnevih_dela_dopust">Per days
+                                worked</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="po_opravljenih_dnevih_dela_dopust_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_opravljenih_dnevih_dela_dopust_obrazlaga">Obrazlaga</label>
+                                    <label for="po_opravljenih_dnevih_dela_dopust_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="po_opravljenih_dnevih_dela_dopust_stevilka" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_opravljenih_dnevih_dela_dopust_stevilka">Delež dopusta na opravljen
-                                        dan</label>
+                                    <label for="po_opravljenih_dnevih_dela_dopust_stevilka">Pro-rata leave per
+                                        workday</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="po_dopolnjenem_koledarskem_mesecu_dopust" type="checkbox"
                                 class="form-check-input">
-                            <label class="form-check-label" for="po_dopolnjenem_koledarskem_mesecu_dopust">Po
-                                dopolnjenem koledarskem mesecu</label>
+                            <label class="form-check-label" for="po_dopolnjenem_koledarskem_mesecu_dopust">Per completed
+                                calendar month</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="po_dopolnjenem_koledarskem_mesecu_dopust_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_dopolnjenem_koledarskem_mesecu_dopust_obrazlaga">Obrazlaga</label>
+                                    <label for="po_dopolnjenem_koledarskem_mesecu_dopust_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="po_dopolnjenem_koledarskem_mesecu_dopust_stevilka" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_dopolnjenem_koledarskem_mesecu_dopust_stevilka">Število dopusta
-                                        na mesec</label>
+                                    <label for="po_dopolnjenem_koledarskem_mesecu_dopust_stevilka">Monthly leave
+                                        accrual</label>
                                 </div>
                             </div>
                         </div>
@@ -446,46 +437,43 @@
                         <div class="form-check show-text-and-number-box">
                             <input id="po_dopolnjenem_mesecu_dela_v_podjetju_dopust" type="checkbox"
                                 class="form-check-input">
-                            <label class="form-check-label" for="po_dopolnjenem_mesecu_dela_v_podjetju_dopust">Po
-                                dopolnjenem
-                                mesecu dela v podjetju</label>
+                            <label class="form-check-label" for="po_dopolnjenem_mesecu_dela_v_podjetju_dopust">Per
+                                completed month of employment</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="po_dopolnjenem_mesecu_dela_v_podjetju_dopust_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2" />
                                     <label
-                                        for="po_dopolnjenem_mesecu_dela_v_podjetju_dopust_obrazlaga">Obrazlaga</label>
+                                        for="po_dopolnjenem_mesecu_dela_v_podjetju_dopust_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="po_dopolnjenem_mesecu_dela_v_podjetju_dopust_stevilka" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_dopolnjenem_mesecu_dela_v_podjetju_dopust_stevilka">Število
-                                        dopusta
-                                        na mesec dela</label>
+                                    <label for="po_dopolnjenem_mesecu_dela_v_podjetju_dopust_stevilka">Monthly leave
+                                        accrual</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-and-number-box">
                             <input id="po_polovicah_meseca_dopust" type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="po_polovicah_meseca_dopust">Po polovicah meseca
-                                (potrebna je definicija meje)</label>
+                            <label class="form-check-label" for="po_polovicah_meseca_dopust">Semi-monthly (threshold
+                                definition required)</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="po_polovicah_meseca_dopust_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_polovicah_meseca_dopust_obrazlaga">Obrazlaga</label>
+                                    <label for="po_polovicah_meseca_dopust_obrazlaga">Explanation</label>
                                 </div>
                                 <div class="outlined-input mt-4">
                                     <input id="po_polovicah_meseca_dopust_stevilka" type="text"
                                         class="form-control form-control-sm mt-2" />
-                                    <label for="po_polovicah_meseca_dopust_stevilka">Število dopusta na pol
-                                        meseca</label>
+                                    <label for="po_polovicah_meseca_dopust_stevilka">Half-monthly leave accrual</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#add-field-modal">
-                        Dodaj polje
+                        Add Field
                     </button>
                 </div>
             </div>
@@ -493,138 +481,135 @@
                 <div>
                     <div data-group="izracun_regresa">
                         <label>
-                            <h4>Izračun regresa</h4>
+                            <h4>Annual Leave Allowance (Regres)</h4>
                         </label>
                         <div class="ms-2 inputs-parent">
                             <div class="form-check show-text-and-number-box">
                                 <input type="checkbox" class="form-check-input" id="po_opravljenih_dnevih_dela_regres">
-                                <label class="form-check-label" for="po_opravljenih_dnevih_dela_regres">Po
-                                    opravljenih
-                                    dnevih dela</label>
+                                <label class="form-check-label" for="po_opravljenih_dnevih_dela_regres">Per days
+                                    worked</label>
                                 <div class="toggle-visibility inline-alignment">
                                     <div class="outlined-input">
                                         <input id="po_opravljenih_dnevih_dela_regres_obrazlaga" type="text"
                                             class="form-control form-control-sm" />
-                                        <label for="po_opravljenih_dnevih_dela_regres_obrazlaga">Obrazlaga</label>
+                                        <label for="po_opravljenih_dnevih_dela_regres_obrazlaga">Explanation</label>
                                     </div>
                                     <div class="outlined-input mt-4">
                                         <input id="po_opravljenih_dnevih_dela_regres_stevilka" type="text"
                                             class="form-control form-control-sm" />
-                                        <label for="po_opravljenih_dnevih_dela_regres_stevilka">Delež regresa na
-                                            opravljen dan</label>
+                                        <label for="po_opravljenih_dnevih_dela_regres_stevilka">Pro-rata leave per day
+                                            worked</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-check show-text-and-number-box">
                                 <input id="po_dopolnjenem_koledarskem_mesecu_regres" type="checkbox"
                                     class="form-check-input">
-                                <label class="form-check-label" for="po_dopolnjenem_koledarskem_mesecu_regres">Po
-                                    dopolnjenem koledarskem mesecu</label>
+                                <label class="form-check-label" for="po_dopolnjenem_koledarskem_mesecu_regres">Per
+                                    completed calendar month</label>
                                 <div class="toggle-visibility inline-alignment">
                                     <div class="outlined-input">
                                         <input id="po_dopolnjenem_koledarskem_mesecu_regres_obrazlaga" type="text"
                                             class="form-control form-control-sm mt-2" />
                                         <label
-                                            for="po_dopolnjenem_koledarskem_mesecu_regres_obrazlaga">Obrazlaga</label>
+                                            for="po_dopolnjenem_koledarskem_mesecu_regres_obrazlaga">Explanation</label>
                                     </div>
                                     <div class="outlined-input mt-4">
                                         <input id="po_dopolnjenem_koledarskem_mesecu_regres_stevilka" type="text"
                                             class="form-control form-control-sm" />
-                                        <label for="po_dopolnjenem_koledarskem_mesecu_regres_stevilka">Število regresa
-                                            na mesec</label>
+                                        <label for="po_dopolnjenem_koledarskem_mesecu_regres_stevilka">Monthly allowance
+                                            accrual</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-check show-text-and-number-box">
                                 <input id="po_dopolnjenem_mesecu_dela_v_podjetju_regres" type="checkbox"
                                     class="form-check-input">
-                                <label class="form-check-label" for="po_dopolnjenem_mesecu_dela_v_podjetju_regres">Po
-                                    dopolnjenem
-                                    mesecu dela v podjetju</label>
+                                <label class="form-check-label" for="po_dopolnjenem_mesecu_dela_v_podjetju_regres">Per
+                                    completed month of service</label>
                                 <div class="toggle-visibility inline-alignment">
                                     <div class="outlined-input">
                                         <input id="po_dopolnjenem_mesecu_dela_v_podjetju_regres_obrazlaga" type="text"
                                             class="form-control form-control-sm mt-2" />
-                                        <label for="po_dopolnjenem_mesecu_dela_v_podjetju_regres_obrazlaga">Več
-                                            informacij o dopustu</label>
+                                        <label for="po_dopolnjenem_mesecu_dela_v_podjetju_regres_obrazlaga">Additional
+                                            Info</label>
                                     </div>
                                     <div class="outlined-input mt-4">
                                         <input id="po_dopolnjenem_mesecu_dela_v_podjetju_regres_stevilka" type="text"
                                             class="form-control form-control-sm mt-2" />
-                                        <label for="po_dopolnjenem_mesecu_dela_v_podjetju_regres_stevilka">Število
-                                            regresa na mesec dela</label>
+                                        <label for="po_dopolnjenem_mesecu_dela_v_podjetju_regres_stevilka">Monthly
+                                            allowance accrual</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-check show-text-and-number-box">
                                 <input type="checkbox" class="form-check-input" id="regres_po_polovicah_meseca">
-                                <label class="form-check-label" for="regres_po_polovicah_meseca">Po polovicah meseca
-                                    (potrebna je definicija meje)</label>
+                                <label class="form-check-label" for="regres_po_polovicah_meseca">Semi-monthly (threshold
+                                    definition required)</label>
                                 <div class="toggle-visibility inline-alignment">
                                     <div class="outlined-input">
                                         <input id="regres_po_polovicah_meseca_obrazlaga" type="text"
                                             class="form-control form-control-sm" />
-                                        <label for="regres_po_polovicah_meseca_obrazlaga">Obrazlaga</label>
+                                        <label for="regres_po_polovicah_meseca_obrazlaga">Explanation</label>
                                     </div>
                                     <div class="outlined-input mt-4">
                                         <input id="regres_po_polovicah_meseca_stevilka" type="text"
                                             class="form-control form-control-sm" />
-                                        <label for="regres_po_polovicah_meseca_stevilka">Število regresa na pol
-                                            meseca</label>
+                                        <label for="regres_po_polovicah_meseca_stevilka">Half-monthly allowance
+                                            accrual</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <button type="button" class="default-btn" data-bs-toggle="modal"
                             data-bs-target="#add-field-modal">
-                            Dodaj polje
+                            Add Field
                         </button>
                     </div>
                     <div class="split-div">
                         <div data-group="zdravniski_pregled_in_spricevala">
-                            <h4>Zdravniški pregled in spričevala</h4>
+                            <h4>Occupational Health Exams & Certificates</h4>
                             <div class="split-div ms-2">
-                                <label>Dolžina trajnosti zdravniškega spričevala</label>
+                                <label>Medical Certificate Validity Period</label>
                                 <input id="dolzina_trajnosti_zdravniskega_spricevala" type="text"
                                     class="form-control form-control-sm ms-2">
                             </div>
                             <div class="split-div ms-2">
-                                <label>Kdo naroča na predhodni ZP?</label>
+                                <label>Who schedules the Pre-employment Exam?</label>
                                 <fieldset id="kdo_naroca_na_predhodni_zp">
                                     <input id="kdo_naroca_na_predhodni_zdravniski_pregled_uporabnik" type="radio"
-                                        value="Uporabnik" name="kdo-naroča-na-predhodni-zp" class="form-check-input">
-                                    <label for="kdo_naroča_na_predhodni_zdravniški_pregled_uporabnik">Uporabnik</label>
-                                    <input id="kdo_naroca_na_predhodni_zdravniski_pregled_mi" type="radio" value="Mi"
+                                        value="User" name="kdo-naroča-na-predhodni-zp" class="form-check-input">
+                                    <label for="kdo_naroca_na_predhodni_zdravniski_pregled_uporabnik">User</label>
+                                    <input id="kdo_naroca_na_predhodni_zdravniski_pregled_mi" type="radio" value="We"
                                         name="kdo-naroča-na-predhodni-zp" class="form-check-input">
-                                    <label for="kdo_naroča_na_predhodni_zdravniški_pregled_mi">
-                                        Mi</label>
+                                    <label for="kdo_naroca_na_predhodni_zdravniski_pregled_mi">
+                                        We</label>
                                 </fieldset>
                             </div>
                             <div class="split-div ms-2">
-                                <label>Kdo naroča na obdobni ZP?</label>
+                                <label>Periodic medical exam requested by</label>
                                 <fieldset id="kdo_naroca_na_obdobni_zp">
                                     <input id="kdo_naroca_na_obdobni_zdravniski_pregled_uporabnik" type="radio"
-                                        value="Uporabnik" name="kdo-naroča-na-obdobni-zdravniški-pregled"
+                                        value="User" name="kdo-naroča-na-obdobni-zdravniški-pregled"
                                         class="form-check-input">
-                                    <label for="kdo_naroča_na_obdobni_zdravniški_pregled_uporabnik">Uporabnik</label>
-                                    <input id="kdo_naroca_na_obdobni_zdravniski_pregled_mi" type="radio" value="Mi"
+                                    <label for="kdo_naroca_na_obdobni_zdravniski_pregled_uporabnik">User</label>
+                                    <input id="kdo_naroca_na_obdobni_zdravniski_pregled_mi" type="radio" value="We"
                                         name="kdo-naroča-na-obdobni-zdravniški-pregled" class="form-check-input">
-                                    <label for="kdo_naroča_na_obdobni_zdravniški_pregled_mi">
-                                        Mi</label>
+                                    <label for="kdo_naroca_na_obdobni_zdravniski_pregled_mi">
+                                        We</label>
 
                                 </fieldset>
                             </div>
                             <div class="split-div ms-2">
-                                <label>Kdo je plačnik ZP?</label>
+                                <label>Who is the payer for the Medical Exam?</label>
                                 <fieldset id="kdo_je_placnik_zp">
-                                    <input id="kdo_je_placnik_zdravniskega_pregleda_uporabnik" type="radio"
-                                        value="Uporabnik" name="kdo-je-plačnik-zdravniškega-pregleda"
-                                        class="form-check-input">
-                                    <label for="kdo_je_placnik_zdravniškega_pregleda_uporabnik">Uporabnik</label>
-                                    <input id="kdo_je_placnik_zdravniskega_pregleda_mi" type="radio" value="Mi"
+                                    <input id="kdo_je_placnik_zdravniskega_pregleda_uporabnik" type="radio" value="User"
                                         name="kdo-je-plačnik-zdravniškega-pregleda" class="form-check-input">
-                                    <label for="kdo_je_plačnik_zdravniškega_pregleda_mi">
-                                        Mi</label>
+                                    <label for="kdo_je_placnik_zdravniskega_pregleda_uporabnik">User</label>
+                                    <input id="kdo_je_placnik_zdravniskega_pregleda_mi" type="radio" value="We"
+                                        name="kdo-je-plačnik-zdravniškega-pregleda" class="form-check-input">
+                                    <label for="kdo_je_placnik_zdravniskega_pregleda_mi">
+                                        We</label>
                                 </fieldset>
                             </div>
                         </div>
@@ -633,38 +618,38 @@
                 </div>
                 <div data-group="dodatki">
                     <label>
-                        <h4>Dodatki</h4>
+                        <h4>Bonuses</h4>
                     </label>
                     <div class="split-div">
-                        <label>Popoldansko delo</label>
+                        <label>Afternoon Shift</label>
                         <input type="text" class="form-control form-control-sm" id="popoldansko_delo">
                     </div>
                     <div class="split-div">
-                        <label>Nočno delo</label>
+                        <label>Night Shift</label>
                         <input type="text" class="form-control form-control-sm" id="nocno_delo">
                     </div>
                     <div class="split-div">
-                        <label>Praznično delo</label>
+                        <label>Holiday Work</label>
                         <input type="text" class="form-control form-control-sm" id="praznicno_delo">
                     </div>
 
                     <div class="ms-2">
-                        <label><b>Nadurno delo</b></label>
+                        <label><b>Overtime Work</b></label>
                         <div class="ms-2 my-3">
                             <div class="split-div">
-                                <label>Redno</label>
+                                <label>Regular</label>
                                 <input type="text" class="form-control form-control-sm" id="redno_nadurno">
                             </div>
                             <div class="split-div">
-                                <label>Nočno</label>
+                                <label>Night</label>
                                 <input type="text" class="form-control form-control-sm" id="nocno_nadurno">
                             </div>
                             <div class="split-div">
-                                <label>Praznično</label>
+                                <label>Holiday</label>
                                 <input type="text" class="form-control form-control-sm" id="praznicno_nadurno">
                             </div>
                             <div class="split-div">
-                                <label>Nedeljsko</label>
+                                <label>Sunday</label>
                                 <input type="text" class="form-control form-control-sm" id="nedeljsko_nadurno">
                             </div>
                         </div>
@@ -673,14 +658,14 @@
             </div>
             <div class="container mt-4" data-group="ocena_tveganja_za_delovno_mesto">
                 <div class="table-container">
-                    <h4 class="mb-3">Ocena tveganja za delovno mesto</h4>
+                    <h4 class="mb-3">Workplace Risk Assessment</h4>
                     <table class="table table-sm table-borderless table-hover">
                         <thead>
                             <tr>
-                                <th>Ime delovnega mesta</th>
-                                <th>Priložena datoteka ocene</th>
-                                <th>Lokacija zdravstvenega potrdila</th>
-                                <th>Alergološki pregled</th>
+                                <th>Job Title</th>
+                                <th>Assessment File Attached</th>
+                                <th>Medical Certificate Location</th>
+                                <th>Allergy Testing</th>
                                 <th style="width: 100px;"></th>
                             </tr>
                         </thead>
@@ -693,7 +678,7 @@
                                 <td>
                                     <button type="button" id="ocena_tveganja_prilozena_datoteka_ocene0"
                                         class="default-btn" data-bs-toggle="modal"
-                                        data-bs-target="#file-preview-modal">Predogled</button>
+                                        data-bs-target="#file-preview-modal">Preview</button>
                                 </td>
                                 <td>
                                     <input id="ocena_tveganja_lokacija_zdravstvenega_potrdila0" type="text"
@@ -702,131 +687,136 @@
                                 <td class="allergy-cell show-text-box">
                                     <input type="checkbox" id="ocena_tveganja_potreben_alergoloski_pregled0"
                                         class="form-check-input allergy-check">
-                                    <label class="form-check-label">Potreben je alergološki pregled</label>
+                                    <label class="form-check-label">Allergy Testing Required</label>
 
                                     <div class="toggle-visibility">
                                         <div class="outlined-input mt-3">
                                             <input type="text" id="ocena_tveganja_lokacija_alergolskega_pregleda0"
                                                 class="form-control form-control-sm">
-                                            <label for="ocena_tveganja_lokacija_alergolskega_pregleda0">Lokacija
-                                                pregleda</label>
+                                            <label for="ocena_tveganja_lokacija_alergolskega_pregleda0">Exam
+                                                Location</label>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <button type="button" class="default-btn remove-row-btn" disabled>Odstrani</button>
+                                    <button type="button" class="default-btn remove-row-btn" disabled>Remove</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <button type="button" class="default-btn" id="add_risk_assesment">Dodaj polje</button>
+                    <button type="button" class="default-btn" id="add_risk_assesment">Add Field</button>
                 </div>
             </div>
 
             <div class="split-div">
-                <div data-group="zakljuceno_zdravnisko_spricevalo">
+                <div data-group="zakljuceno_zdravnisko_spricevala">
                     <label>
-                        <h4>Zaključeno zdravniško spričevalo:</h4>
+                        <h4>Medical Exam Results:</h4>
                     </label>
                     <div>
                         <div class="form-check">
                             <label for="rezultat_zdravstvenega_pregleda_1" class="form-check-label">
-                                Rezultat 1 - Popolnoma sposoben
+                                Result 1 - Fully Fit for Work
                             </label><br>
-                            <span>Ne sprejmemo</span>
+                            <span>Reject</span>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="rezultat_zdravstvenega_pregleda_1">
                                 <span class="slider"></span>
                             </label>
-                            <span>Sprejmemo</span>
+                            <span>Accept</span>
                         </div>
                         <div class="form-check show-text-box-slider">
                             <label for="rezultat_zdravstvenega_pregleda_2" class="form-check-label">
-                                Rezultat 2 - Sposoben z manjšimi omejitvami
+                                Result 2 - Fit with Minor Restrictions
                             </label><br>
-                            <span>Ne sprejmemo</span>
+                            <span>Reject</span>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="rezultat_zdravstvenega_pregleda_2">
                                 <span class="slider"></span>
                             </label>
-                            <span>Sprejmemo</span>
+                            <span>Accept</span>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="rezultat_zdravstvenega_pregleda_2_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="rezultat_zdravstvenega_pregleda_2_obrazlaga">Razlog omjetive</label>
+                                    <label for="rezultat_zdravstvenega_pregleda_2_obrazlaga">Reason for
+                                        Restriction</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box-slider">
                             <label for="rezultat_zdravstvenega_pregleda_3" class="form-check-label">
-                                Rezultat 3 - Omejena sposobnost
+                                Result 3 - Limited Capacity
                             </label><br>
-                            <span>Ne sprejmemo</span>
+                            <span>Reject</span>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="rezultat_zdravstvenega_pregleda_3">
                                 <span class="slider"></span>
                             </label>
-                            <span>Sprejmemo</span>
+                            <span>Accept</span>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="rezultat_zdravstvenega_pregleda_3_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="rezultat_zdravstvenega_pregleda_3_obrazlaga">Razlog omjetive</label>
+                                    <label for="rezultat_zdravstvenega_pregleda_3_obrazlaga">Reason for
+                                        Restriction</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box-slider">
                             <label for="rezultat_zdravstvenega_pregleda_4" class="form-check-label">
-                                Rezultat 4 - Omejena sposobnost za specifične naloge
+                                Result 4 - Limited Capacity for Specific Tasks
                             </label><br>
-                            <span>Ne sprejmemo</span>
+                            <span>Reject</span>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="rezultat_zdravstvenega_pregleda_4">
                                 <span class="slider"></span>
                             </label>
-                            <span>Sprejmemo</span>
+                            <span>Accept</span>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="rezultat_zdravstvenega_pregleda_4_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="rezultat_zdravstvenega_pregleda_4_obrazlaga">Razlog omjetive</label>
+                                    <label for="rezultat_zdravstvenega_pregleda_4_obrazlaga">Reason for
+                                        Restriction</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box-slider">
                             <label for="rezultat_zdravstvenega_pregleda_5" class="form-check-label">
-                                Rezultat 5 - Delno nesposoben
+                                Result 5 - Partially Unfit for Work
                             </label><br>
-                            <span>Ne sprejmemo</span>
+                            <span>Reject</span>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="rezultat_zdravstvenega_pregleda_5">
                                 <span class="slider"></span>
                             </label>
-                            <span>Sprejmemo</span>
+                            <span>Accept</span>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="rezultat_zdravstvenega_pregleda_5_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="rezultat_zdravstvenega_pregleda_5_obrazlaga">Razlog omjetive</label>
+                                    <label for="rezultat_zdravstvenega_pregleda_5_obrazlaga">Reason for
+                                        Restriction</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box-slider">
                             <label for="rezultat_zdravstvenega_pregleda_6" class="form-check-label">
-                                Rezultat 6 - Popolnoma nesposoben
+                                Result 6 - Fully Unfit for Work
                             </label><br>
-                            <span>Ne sprejmemo</span>
+                            <span>Reject</span>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="rezultat_zdravstvenega_pregleda_6">
                                 <span class="slider"></span>
                             </label>
-                            <span>Sprejmemo</span>
+                            <span>Accept</span>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="rezultat_zdravstvenega_pregleda_6_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="rezultat_zdravstvenega_pregleda_6_obrazlaga">Razlog omjetive</label>
+                                    <label for="rezultat_zdravstvenega_pregleda_6_obrazlaga">Reason for
+                                        Restriction</label>
                                 </div>
 
                             </div>
@@ -837,144 +827,135 @@
                 <div>
                     <div data-group="pogodba">
                         <label>
-                            <h4>Pogodba</h4>
+                            <h4>Contract</h4>
                         </label><br>
-                        <label class="label-title">Kaj pošljemo naročniku?</label>
+                        <label class="label-title">Sent to Client</label>
                         <div class="ms-2 mt-1 inputs-parent">
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="velikost_delovne_opreme">
-                                <label class="form-check-label" for="velikost_delovne_opreme">Velikost
-                                    delovne
-                                    opreme</label>
+                                <label class="form-check-label" for="velikost_delovne_opreme">Work Equipment
+                                    Size</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="velikost_delovne_opreme_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="velikost_delovne_opreme_obrazlaga">Velikost</label>
+                                        <label for="velikost_delovne_opreme_obrazlaga">Size</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="kdaj_lahko_zacne">
-                                <label class="form-check-label" for="kdaj_lahko_začne">Kdaj lahko
-                                    začne</label>
+                                <label class="form-check-label" for="kdaj_lahko_zacne">Start Date Availability</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="kdaj_lahko_zacne_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="kdaj_lahko_zacne_obrazlaga">Datum začetka</label>
+                                        <label for="kdaj_lahko_zacne_obrazlaga">Start Date</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="podpisana_pogodba">
-                                <label class="form-check-label" for="podpisana_pogodba">Podpisano
-                                    pogodbo</label>
+                                <label class="form-check-label" for="podpisana_pogodba">Signed Contract</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="pogodba_obrazlaga" type="text" class="form-control form-control-sm">
-                                        <label for="pogodba_obrazlaga">Obrazlaga</label>
+                                        <label for="pogodba_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="dopusti_za_zaposlene">
-                                <label class="form-check-label" for="dopusti_za_zaposlene">Dopusti za
-                                    zaposlene
-                                    (na
-                                    mesečni
-                                    ravni)</label>
+                                <label class="form-check-label" for="dopusti_za_zaposlene">Monthly Employee Leave
+                                    Status</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="dopusti_za_zaposlene_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="dopusti_za_zaposlene_obrazlaga">Obrazlaga</label>
+                                        <label for="dopusti_za_zaposlene_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <button type="button" class="default-btn" data-bs-toggle="modal"
                             data-bs-target="#add-field-modal">
-                            Dodaj polje
+                            Add Field
                         </button>
                     </div>
                     <div data-group="vprasamo_narocnika">
                         <label>
-                            <h4>Vprašamo naročnika</h4>
+                            <h4>Client Questions</h4>
                         </label>
                         <div class="ms-2 inputs-parent">
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="visina_place">
-                                <label class="form-check-label" for="višina_plače">Višina plače</label>
+                                <label class="form-check-label" for="visina_place">Gross Salary</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="visina_place_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="visina_place_obrazlaga">Obrazlaga</label>
+                                        <label for="visina_place_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="trajanje_poskusnega_dela">
-                                <label class="form-check-label" for="trajanje_poskusnega_dela">Trajanje
-                                    poskusnega
-                                    dela</label>
+                                <label class="form-check-label" for="trajanje_poskusnega_dela">Probation Period
+                                    Duration</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="trajanje_poskusnega_dela_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="trajanje_poskusnega_dela_obrazlaga">Obrazlaga</label>
+                                        <label for="trajanje_poskusnega_dela_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="dolzina_pogodbe">
-                                <label class="form-check-label" for="dolžina_pogodbe">Dolžina
-                                    pogodbe</label>
+                                <label class="form-check-label" for="dolzina_pogodbe">Contract Length</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="dolzina_pogodbe_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="dolzina_pogodbe_obrazlaga">Obrazlaga</label>
+                                        <label for="dolzina_pogodbe_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="na_katero_lokacijo_bo_napoten">
-                                <label class="form-check-label" for="na_katero_lokacijo_bo_napoten">Na katero
-                                    lokacijo bo
-                                    napoten</label>
+                                <label class="form-check-label" for="na_katero_lokacijo_bo_napoten">Assignment
+                                    Location</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="na_katero_lokacijo_bo_napoten_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="na_katero_lokacijo_bo_napoten_obrazlaga">Obrazlaga</label>
+                                        <label for="na_katero_lokacijo_bo_napoten_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-check show-text-box">
                                 <input type="checkbox" class="form-check-input" id="pricetek_dela_in_izmena">
-                                <label class="form-check-label" for="pričetek_dela_in_izmena">Pričetek dela in
-                                    izmena</label>
+                                <label class="form-check-label" for="pricetek_dela_in_izmena">Work Schedule &
+                                    Shift</label>
                                 <div class="toggle-visibility">
                                     <div class="outlined-input">
                                         <input id="pricetek_dela_in_izmena_obrazlaga" type="text"
                                             class="form-control form-control-sm">
-                                        <label for="pricetek_dela_in_izmena_obrazlaga">Obrazlaga</label>
+                                        <label for="pricetek_dela_in_izmena_obrazlaga">Explanation</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <button type="button" class="default-btn" data-bs-toggle="modal"
                             data-bs-target="#add-field-modal">
-                            Dodaj polje
+                            Add Field
                         </button>
                     </div>
                 </div>
@@ -982,151 +963,136 @@
             <div class="split-div">
                 <div data-group="zahtevana_dokumentacija_pred_zaposlitvijo">
                     <label>
-                        <h4>Zahtevana dokumentacija pred zaposlitvijo</h4>
+                        <h4>Required Documentation Before Employment</h4>
                     </label>
                     <div class="ms-2 inputs-parent">
                         <div>
                             <input type="checkbox" class="form-check-input" id="osebna_izkaznica_ali_potni_list">
-                            <label class="form-check-label" for="osebna_izkaznica_ali_potni_list">Osebna izkaznica ali
-                                potni
-                                list</label>
+                            <label class="form-check-label" for="osebna_izkaznica_ali_potni_list">ID Card or
+                                Passport</label>
                         </div>
                         <div>
                             <input type="checkbox" class="form-check-input" id="izpis_zavarovanj_v_republiki_sloveniji">
-                            <label class="form-check-label" for="izpis_zavarovanj_v_republiki_sloveniji">Izpis
-                                zavarovanj v
-                                Republiki
-                                Sloveniji</label>
+                            <label class="form-check-label" for="izpis_zavarovanj_v_republiki_sloveniji">Insurance
+                                Record (ZPIZ)</label>
                         </div>
                         <div>
                             <input type="checkbox" class="form-check-input" id="potrdilo_o_trr_racunu">
-                            <label class="form-check-label" for="potrdilo_o_trr_računu">Potrdilo o TRR
-                                računu</label>
+                            <label class="form-check-label" for="potrdilo_o_trr_racunu">Bank Account
+                                Confirmation</label>
                         </div>
                         <div>
                             <input type="checkbox" class="form-check-input" id="potrdilo_o_podaljsanju_vize_ali_dd">
-                            <label class="form-check-label" for="potrdilo_o_podaljšanju_vize_ali_dd">Potrdilo o
-                                podaljšanju
-                                vize
-                                /
-                                DD</label>
+                            <label class="form-check-label" for="potrdilo_o_podaljsanju_vize_ali_dd">Visa/Residence
+                                Permit Extension</label>
                         </div>
                         <div>
                             <input type="checkbox" class="form-check-input" id="rojstni_list_otroka">
-                            <label class="form-check-label" for="rojstni_list_otroka">Rojstni list
-                                otroka</label>
+                            <label class="form-check-label" for="rojstni_list_otroka">Child's Birth Certificate</label>
                         </div>
                         <div>
                             <input type="checkbox" class="form-check-input" id="potrdilo_o_nekaznovanosti">
-                            <label class="form-check-label" for="potrdilo_o_nekaznovanosti">Potrdilo o
-                                nekaznovanosti</label>
+                            <label class="form-check-label" for="potrdilo_o_nekaznovanosti">Criminal Record
+                                Certificate</label>
                         </div>
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input"
                                 id="soglasje_za_uporabo_telefonske_stevilke">
-                            <label class="form-check-label" for="soglasje_za_uporabo_telefonske_številke">Soglasje za
-                                uporabo
-                                telefonske številke</label>
+                            <label class="form-check-label" for="soglasje_za_uporabo_telefonske_stevilke">Phone Number
+                                Usage Consent</label>
                             <div class="toggle-visibility">
                                 <button class="default-btn" id="soglasje_za_uporabo_telefonske_stevilke_dokument"
                                     type="button" data-bs-toggle="modal"
-                                    data-bs-target="#file-preview-modal">Predogled</button>
+                                    data-bs-target="#file-preview-modal">Preview</button>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input" id="kolektivno_zavarovanje">
-                            <label class="form-check-label" for="kolektivno_zavarovanje">Kolektivno
-                                zavarovanje</label>
+                            <label class="form-check-label" for="kolektivno_zavarovanje">Collective Insurance</label>
                             <div class="toggle-visibility">
                                 <button class="default-btn" id="kolektivno_zavarovanje_dokument" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#file-preview-modal">Predogled</button>
+                                    data-bs-toggle="modal" data-bs-target="#file-preview-modal">Preview</button>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#add-field-modal">
-                        Dodaj polje
+                        Add Field
                     </button>
                 </div>
                 <div data-group="kandidatu_v_podpis_posljemo">
                     <label>
-                        <h4>Kandidatu v podpis pošljemo</h4>
+                        <h4>Sent to Candidate for Signature</h4>
                     </label>
                     <div class="ms-2 inputs-parent">
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input" id="ocena_poskusnega_dela">
-                            <label class="form-check-label" for="ocena_poskusnega_dela">Oceno
-                                poskusnega
-                                dela</label>
+                            <label class="form-check-label" for="ocena_poskusnega_dela">Probation Period
+                                Evaluation</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="ocena_poskusnega_dela_obrazlaga" type="text"
                                         class="form-control form-control-sm mt-2">
-                                    <label for="ocena_poskusnega_dela_obrazlaga">Obrazlaga</label>
+                                    <label for="ocena_poskusnega_dela_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input" id="pogodbo_o_zaposlitvi">
-                            <label class="form-check-label" for="pogodbo_o_zaposlitvi">Pogodbo o
-                                zaposlitvi</label>
+                            <label class="form-check-label" for="pogodbo_o_zaposlitvi">Employment Contract</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="pogodbo_o_zaposlitvi_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="pogodbo_o_zaposlitvi_obrazlaga">Obrazlaga</label>
+                                    <label for="pogodbo_o_zaposlitvi_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input" id="napotitev_na_delo">
-                            <label class="form-check-label" for="napotitev_na_delo">Napotitev na
-                                delo</label>
+                            <label class="form-check-label" for="napotitev_na_delo">Work Assignment Referral</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="napotitev_na_delo_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="napotitev_na_delo_obrazlaga">Obrazlaga</label>
+                                    <label for="napotitev_na_delo_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input" id="izjavo_o_glavnem_delodajalcu">
-                            <label class="form-check-label" for="izjavo_o_glavnem_delodajalcu">Izjavo o
-                                glavnem
-                                delodajalcu (če se ne zaposli 1. v mesecu)</label>
+                            <label class="form-check-label" for="izjavo_o_glavnem_delodajalcu">Primary Employer
+                                Declaration</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="izjavo_o_glavnem_delodajalcu_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="izjavo_o_glavnem_delodajalcu_obrazlaga">Obrazlaga</label>
+                                    <label for="izjavo_o_glavnem_delodajalcu_obrazlaga">Explanation</label>
                                 </div>
                                 <button type="button" class="default-btn" id="ne_zaposli_1_mesec_datoteka"
-                                    data-bs-toggle="modal" data-bs-target="#file-preview-modal">Predogled</button>
+                                    data-bs-toggle="modal" data-bs-target="#file-preview-modal">Preview</button>
                             </div>
                         </div>
 
                         <div class="form-check show-text-box">
                             <input type="checkbox" class="form-check-input" id="izjavo_o_prevozu">
-                            <label class="form-check-label" for="izjavo_o_prevozu">Izjavo o
-                                prevozu</label>
+                            <label class="form-check-label" for="izjavo_o_prevozu">Travel Expenses Declaration</label>
                             <div class="toggle-visibility">
                                 <div class="outlined-input">
                                     <input id="izjavo_o_prevozu_obrazlaga" type="text"
                                         class="form-control form-control-sm">
-                                    <label for="izjavo_o_prevozu_obrazlaga">Obrazlaga</label>
+                                    <label for="izjavo_o_prevozu_obrazlaga">Explanation</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="default-btn" data-bs-toggle="modal"
-                        data-bs-target="#add-field-modal">Dodaj
-                        polje</button>
+                        data-bs-target="#add-field-modal">Add Field</button>
                 </div>
             </div>
             <div class="split-div">
                 <div data-group="obvescanje_za_1_dan">
                     <label>
-                        <h4>Obveščanje za 1. dan (protokol za začetek dela)</h4>
+                        <h4>Day 1 Notification (Onboarding Protocol)</h4>
                     </label>
                     <div class="mt-2">
                         <textarea id="obvescanje_1_dan" rows="4" class="form-control form-control-sm"></textarea>
@@ -1137,18 +1103,18 @@
 
             <div class="container mt-4" data-group="placa">
                 <div class="table-container">
-                    <h4 class="mb-0">Plača</h4>
+                    <h4 class="mb-0">Salary</h4>
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
                                 <th>
-                                    <div>Delovno mesto</div>
+                                    <div>Job Title</div>
                                 </th>
                                 <th>
-                                    <div>Plača (bruto)</div>
+                                    <div>Gross Salary</div>
                                 </th>
                                 <th>
-                                    <div>Lokacija</div>
+                                    <div>Location</div>
                                 </th>
                                 <th style="max-width: 100px;"></th>
                             </tr>
@@ -1158,29 +1124,29 @@
                                 <td><input id="delovno_mesto0" type="text" class="form-control form-control-sm"></td>
                                 <td><input id="bruto0" type="text" class="form-control form-control-sm"></td>
                                 <td><input id="lokacija0" type="text" class="form-control form-control-sm"></td>
-                                <td><button class="default-btn remove-row-btn" type="button" disabled>Odstrani</button>
+                                <td><button class="default-btn remove-row-btn" type="button" disabled>Remove</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <button type="button" class="default-btn" id="add_salary_field">Dodaj polje</button>
+                    <button type="button" class="default-btn" id="add_salary_field">Add Field</button>
                 </div>
             </div>
 
             <div class="container mt-4" data-group="porocilo">
                 <div class="table-container">
-                    <h4 class="mb-0">Poročilo</h4>
+                    <h4 class="mb-0">Report</h4>
                     <table class="table table-sm table-borderless table-hover">
                         <thead>
                             <tr>
                                 <th>
-                                    <div>Ime poročila</div>
+                                    <div>Report Name</div>
                                 </th>
                                 <th>
-                                    <div>Primer ali template poročila</div>
+                                    <div>Example or Template</div>
                                 </th>
                                 <th>
-                                    <div>Razlaga</div>
+                                    <div>Explanation</div>
                                 </th>
                                 <th style="max-width: 100px;"></th>
                             </tr>
@@ -1189,21 +1155,21 @@
                             <tr>
                                 <td><input id="ime_porocila0" type="text" class="form-control form-control-sm"></td>
                                 <td><button type="button" id="primer_ali_template_porocila0" class="default-btn"
-                                        data-bs-toggle="modal" data-bs-target="#file-preview-modal">Predogled</button>
+                                        data-bs-toggle="modal" data-bs-target="#file-preview-modal">Preview</button>
                                 </td>
                                 <td><input id="razlaga0" type="text" class="form-control form-control-sm"></td>
-                                <td><button class="default-btn remove-row-btn" type="button" disabled>Odstrani</button>
+                                <td><button class="default-btn remove-row-btn" type="button" disabled>Remove</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <button type="button" class="default-btn" id="add_report_field">Dodaj polje</button>
+                    <button type="button" class="default-btn" id="add_report_field">Add Field</button>
                 </div>
             </div>
 
             <div class="mb-4" data-group="dodatne-specifike">
                 <label>
-                    <h4>Dodatne specifike</h4>
+                    <h4>Additional Specifications / Notes</h4>
                 </label>
                 <div style="margin-left: 2%; width: 55%; margin-top: 1%;">
                     <textarea id="dodatne_specifike" class="form-control form-control-sm" rows="4"></textarea>
@@ -1216,7 +1182,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="filePreviewModalLabel">Predogled datoteke</h5>
+                            <h5 class="modal-title" id="filePreviewModalLabel">File Preview</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -1228,7 +1194,7 @@
                                 <a id="download" class="default-btn">Download</a>
                             </div>
                             <div class="me-auto mb-4">
-                                <label><b>Spremeni priponko</b></label>
+                                <label><b>Change Attachment</b></label>
                                 <input type="file" class="form-control form-control-sm" id="modal-file">
                             </div>
                             <button type="button" class="default-btn close-modal" data-bs-dismiss="modal">Close</button>
@@ -1241,22 +1207,21 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Dodaj Checkbox Polje</h5>
+                            <h5 class="modal-title">Add Checkbox Field</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div>
-                                <span>Ime novega polja</span>
+                                <span>New Field Name</span>
                                 <input type="text" class="form-control form-control-sm mt-2 modal-label-input">
                             </div>
                             <div>
-                                <span>Možnost nalaganja datoteke (ko obkljukano)</span>
+                                <span>Enable file upload (when checked)</span>
                                 <input type="checkbox" class="form-check-input modal-add-file">
                             </div>
                             <div>
-                                <label for="modal_text_field_number_dropdown">Izberi število tekstovnih polj</label>
-                                <select name="število obrazložitvenih polj"
-                                    class="form-control form-control-sm modal-select">
+                                <label for="modal_text_field_number_dropdown">Number of text fields</label>
+                                <select name="number_of_text_fields" class="form-control form-control-sm modal-select">
                                     <option value="0" selected>0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -1266,15 +1231,15 @@
                         <div class="modal-footer">
                             <div class="me-auto">
                                 <button type="button" class="default-btn create-field" id="add-field-btn"
-                                    data-bs-dismiss="modal">Dodaj</button>
+                                    data-bs-dismiss="modal">Add</button>
                             </div>
-                            <button type="button" class="default-btn close-modal" data-bs-dismiss="modal">Zapri</button>
+                            <button type="button" class="default-btn close-modal" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button type="submit" class="default-btn submit-btn">Posodobi</button>
+            <button type="submit" class="default-btn submit-btn">Update</button>
         </form>
 
     </div>

@@ -67,7 +67,7 @@ function processForm(heading: string, id: string, form: Form) {
                         visibilityDiv.classList.add("shown");
                 }
 
-                htmlElement.textContent! = "Predogled" as string;
+                htmlElement.textContent! = "Preview" as string;
                 htmlElement.dataset.file_url = form.value as string;
         }
         else if (["checkbox", "radio"].includes(form.type)) {

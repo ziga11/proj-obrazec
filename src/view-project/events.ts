@@ -1,6 +1,4 @@
-import { ProjectService } from "../fetch";
-import type { Account } from "../types";
-import { showToast } from "../utils";
+import { addUserToProject, showAddUserSection, showExistingUsersSection } from "../utils";
 import { editButton, fileModal, manageUsersModal } from "./html";
 
 const params = new URLSearchParams(window.location.search);
@@ -41,63 +39,6 @@ fileModal.download.addEventListener("click", async (e) => {
 const addUser = manageUsersModal.addUser;
 const existingUsers = manageUsersModal.existing;
 
-addUser.sectionBtn.addEventListener("click", () => {
-        addUser.section.style.display = "block";
-        addUser.finishBtn.style.display = "block";
-        existingUsers.section.style.display = "none";
-});
-
-const toastContainer = document.getElementById("toast-container") as HTMLDivElement;
-
-addUser.finishBtn.addEventListener("click", async () => {
-        const email = addUser.email.value.trim();
-        const permission = addUser.permission.value;
-
-
-        if ([email, permission].includes("")) return;
-
-        try {
-                await ProjectService.addUserToProject(projectId, email, Number(permission));
-                showToast(toastContainer, `user (${email}) has been successfully added`);
-        }
-        catch (err) {
-                showToast(toastContainer, `Adding user has failed ${err}`);
-        }
-});
-
-existingUsers.sectionBtn.addEventListener("click", async () => {
-        existingUsers.section.style.display = "grid";
-        addUser.finishBtn.style.display = "none";
-        addUser.section.style.display = "none";
-
-        const accs = await ProjectService.addedAccountsToProject(projectId);
-
-        existingUsers.section.innerHTML = "";
-        for (const acc of accs) {
-                const accDiv = accountListing(acc);
-                existingUsers.section.appendChild(accDiv);
-        }
-});
-
-
-function accountListing(acc: Account): HTMLDivElement {
-        const div = Object.assign(document.createElement("div"), {
-                className: "account-listing"
-        });
-        Object.assign(div.dataset, { "id": acc.id });
-
-        const nameSpan = Object.assign(document.createElement("span"), { className: "acc-name", innerText: `${acc.name}\n` });
-        const emailSpan = Object.assign(document.createElement("span"), { className: "acc-email", innerText: `${acc.email}` });
-        div.append(nameSpan, emailSpan);
-
-        const deleteBtn = Object.assign(document.createElement("button"), { className: "acc-del remove-row-btn", innerText: `⨯` });
-        deleteBtn.addEventListener("click", () => {
-                ProjectService.removeUserFromProject(projectId, acc.id);
-                div.remove();
-        });
-        if (acc.id != Number(creatorId)) {
-                div.appendChild(deleteBtn);
-        }
-
-        return div;
-}
+addUser.sectionBtn.addEventListener("click", () => showAddUserSection());
+addUser.finishBtn.addEventListener("click", async () => addUserToProject(projectId, creatorId!));
+existingUsers.sectionBtn.addEventListener("click", async () => showExistingUsersSection(projectId, creatorId!));

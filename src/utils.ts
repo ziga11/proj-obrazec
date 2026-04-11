@@ -1,5 +1,6 @@
 import { ProjectService } from "./fetch";
 import type { Account, Form, Project } from "./types";
+import { manageUsersModal, toastContainer } from "./view-project/html";
 
 export function createTableCell(className: string, type: string,
         {
@@ -284,3 +285,76 @@ export function showToast(toastContainer: HTMLDivElement, message: string) {
         }, 4000);
 }
 
+export function showAddUserSection() {
+        const addUser = manageUsersModal.addUser;
+        const existingUsers = manageUsersModal.existing;
+
+        addUser.section.style.display = "block";
+        addUser.finishBtn.style.display = "block";
+        existingUsers.section.style.display = "none";
+}
+
+export async function addUserToProject(projectId: number, creatorId: string) {
+        const addUser = manageUsersModal.addUser;
+
+        const email = addUser.email.value.trim();
+        const permission = addUser.permission.value;
+
+
+        if ([email, permission].includes("")) {
+                showToast(toastContainer, "Email or Permission is empty");
+        }
+
+        try {
+                await ProjectService.addUserToProject(projectId, email, Number(permission));
+                showToast(toastContainer, `user (${email}) has been successfully added`);
+                showExistingUsersSection(projectId, creatorId);
+                addUser.email.value = "";
+                addUser.permission.value = "";
+        }
+        catch (err) {
+                showToast(toastContainer, `Adding user has failed ${err}`);
+        }
+}
+
+export async function showExistingUsersSection(projectId: number, creatorId: string) {
+        const addUser = manageUsersModal.addUser;
+        const existingUsers = manageUsersModal.existing;
+
+        existingUsers.section.style.display = "grid";
+        addUser.finishBtn.style.display = "none";
+        addUser.section.style.display = "none";
+
+        const accs = await ProjectService.addedAccountsToProject(projectId);
+
+        const currAcc = JSON.parse(localStorage.getItem('user_profile') || '{}');
+
+        existingUsers.section.innerHTML = "";
+        for (const acc of accs) {
+                if (acc.id == currAcc.id) { continue }
+                const accDiv = accountListing(acc, projectId, creatorId);
+                existingUsers.section.appendChild(accDiv);
+        }
+}
+
+function accountListing(acc: Account, projectId: number, creatorId: string): HTMLDivElement {
+        const div = Object.assign(document.createElement("div"), {
+                className: "account-listing"
+        });
+        Object.assign(div.dataset, { "id": acc.id });
+
+        const nameSpan = Object.assign(document.createElement("span"), { className: "acc-name", innerText: `${acc.name}\n` });
+        const emailSpan = Object.assign(document.createElement("span"), { className: "acc-email", innerText: `${acc.email}` });
+        div.append(nameSpan, emailSpan);
+
+        const deleteBtn = Object.assign(document.createElement("button"), { className: "acc-del remove-row-btn", innerText: `⨯` });
+        deleteBtn.addEventListener("click", () => {
+                ProjectService.removeUserFromProject(projectId, acc.id);
+                div.remove();
+        });
+        if (acc.id != Number(creatorId)) {
+                div.appendChild(deleteBtn);
+        }
+
+        return div;
+}

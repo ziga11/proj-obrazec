@@ -13,7 +13,7 @@ export function addRiskRow(pageOrigin: PageOrigin) {
 
         const fileControlHtml = isCreate
                 ? `<input type="file" id="ocena_tveganja_prilozena_datoteka_ocene${riskCount}" class="form-control form-control-sm">`
-                : `<button id="ocena_tveganja_prilozena_datoteka_ocene${riskCount}" class="default-btn" type="button" data-bs-toggle="modal" data-bs-target="#file-preview-modal">Predogled</button>`;
+                : `<button id="ocena_tveganja_prilozena_datoteka_ocene${riskCount}" class="default-btn" type="button" data-bs-toggle="modal" data-bs-target="#file-preview-modal">Preview</button>`;
 
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -22,15 +22,15 @@ export function addRiskRow(pageOrigin: PageOrigin) {
         <td><input id="ocena_tveganja_lokacija_zdravstvenega_potrdila${riskCount}" type="text" class="form-control form-control-sm" ${disabledAttr}></td>
         <td class="allergy-cell">
             <input type="checkbox" id="ocena_tveganja_potreben_alergološki_pregled${riskCount}" class="form-check-input allergy-check" ${disabledAttr}>
-            <label class="form-check-label">Potreben je alergološki pregled</label>
+            <label class="form-check-label">Mandatory allergy check-up</label>
             <div class="toggle-visibility">
                 <div class="outlined-input mt-3">
                     <input type="text" id="ocena_tveganja_lokacija_alergolškega_pregleda${riskCount}" class="form-control form-control-sm" ${readonlyAttr}>
-                    <label for="ocena_tveganja_lokacija_alergolškega_pregleda${riskCount}">Lokacija pregleda</label>
+                    <label for="ocena_tveganja_lokacija_alergolškega_pregleda${riskCount}">Checkup location</label>
                 </div>
             </div>
         </td>
-        <td><button type="button" class="default-btn remove-row-btn" ${disabledAttr}>Odstrani</button></td>
+        <td><button type="button" class="default-btn remove-row-btn" ${disabledAttr}>Remove</button></td>
         `;
 
         if (!isView) {
@@ -64,7 +64,7 @@ export function addReportRow(pageOrigin: PageOrigin) {
                                 id: `${cellTitles[i]}${tableRowCount}`,
                                 type: "button",
                                 className: "default-btn",
-                                textContent: "Predogled",
+                                textContent: "Preview",
                         });
                         button.dataset.bsToggle = "modal";
                         button.dataset.bsTarget = "#file-preview-modal";
@@ -86,7 +86,7 @@ export function addReportRow(pageOrigin: PageOrigin) {
         const removeBtn = Object.assign(document.createElement("button"), {
                 className: "default-btn remove-row-btn",
                 type: "button",
-                textContent: "Odstrani",
+                textContent: "Remove",
                 disabled: isView
         });
 
@@ -123,7 +123,7 @@ export function addClientRow(pageOrigin: PageOrigin) {
         const removeBtn = Object.assign(document.createElement("button"), {
                 className: "default-btn remove-row-btn",
                 type: "button",
-                textContent: "Odstrani",
+                textContent: "Remove",
                 disabled: isView
         });
         if (!isView) {
@@ -159,7 +159,7 @@ export function addSalaryRow(pageOrigin: PageOrigin) {
         const removeBtn = Object.assign(document.createElement("button"), {
                 className: "default-btn remove-row-btn",
                 type: "button",
-                textContent: "Odstrani",
+                textContent: "Remove",
                 disabled: isView
         });
         if (!isView) {
@@ -199,7 +199,7 @@ export function addExtraFields(field: Field) {
         const removeBtn = Object.assign(document.createElement('button'), {
                 type: "button",
                 className: "remove-row-btn ms-3",
-                textContent: "Odstrani",
+                textContent: "Remove",
                 disabled: isView
         });
 
@@ -258,7 +258,7 @@ function createToggleVisibility(field: Field): HTMLDivElement | null {
                         id: `${field.baseId}-file`,
                         className: isCreate ? "form-control form-control-sm" : "default-btn",
                         type: isCreate ? "file" : "button",
-                        textContent: "Predogled"
+                        textContent: "Preview"
                 });
 
                 if (!isCreate) {

@@ -11,6 +11,7 @@ export const fileModal = {
         iFrame: document.getElementById("modal-pdf") as HTMLIFrameElement,
         download: document.getElementById("download") as HTMLAnchorElement,
 }
+export const toastContainer = document.getElementById("toast-container") as HTMLDivElement;
 
 export const manageUsersModal = {
         modal: document.getElementById("manage-added-users") as HTMLDivElement,

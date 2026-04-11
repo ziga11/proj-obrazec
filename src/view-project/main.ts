@@ -65,7 +65,7 @@ function processForm(heading: string, id: string, form: Form) {
         }
         else if (form.type === "file") {
                 if (form.value == undefined) return;
-                htmlElement.textContent! = "Predogled" as string;
+                htmlElement.textContent! = "Preview" as string;
                 htmlElement.dataset.file_url = form.value as string;
 
                 const parentDiv = htmlElement.closest("div") as HTMLDivElement;

@@ -64,7 +64,7 @@ modalPreview.download.addEventListener("click", async (e) => {
 
 
 modalPreview.fileSelect.addEventListener("change", () => {
-        modalPreview.showOrigin!.textContent = `Predogled (spremenjeno)`
+        modalPreview.showOrigin!.textContent = `Preview (spremenjeno)`
         const btn = modalPreview.showOrigin as HTMLButtonElement;
 
         const file = modalPreview.fileSelect.files![0];

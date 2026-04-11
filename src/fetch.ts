@@ -2,7 +2,7 @@ import type { Account, Project, ProjectPreview } from "./types";
 // http://localhost:8080/
 /* https://proj-obrazec-backend.onrender.com */
 
-const BASE_URL = 'https://proj-obrazec-backend.onrender.com/api';
+const BASE_URL = 'http://localhost:8080/api';
 
 export async function apiRequest<T>(endpoint: string, options: RequestInit = {}, retries = 5): Promise<T> {
         const url = `${BASE_URL}${endpoint}`;
@@ -99,11 +99,11 @@ export const ProjectService = {
                 await apiRequest<{ projectId: number }>('/add-account-to-project', {
                         method: 'POST',
                         body: JSON.stringify({ "project_id": projectId, "email": email, "permission_id": permissionId }),
-                });
+                }, 0);
         },
 
         async removeUserFromProject(projectId: number, accountId: number): Promise<void> {
-                await apiRequest<{ projectId: number }>('/remove-account-to-project', {
+                await apiRequest<{ projectId: number }>('/remove-account-from-project', {
                         method: 'POST',
                         body: JSON.stringify({ "project_id": projectId, "account_id": accountId }),
                 });

@@ -2,8 +2,7 @@ import { hydrateApp } from "../utils";
 
 await hydrateApp();
 
-let acc = JSON.parse(localStorage.getItem('user_profile') || '{}');
-console.log(acc);
+const acc = JSON.parse(localStorage.getItem('user_profile') || '{}');
 
 document.getElementById('user-name')!.textContent = acc.name || 'User';
 
@@ -16,7 +15,6 @@ if (acc.img_url) {
         };
 
         avatarImg.onload = () => {
-                console.log('Image loaded successfully');
                 avatarImg.style.display = "block";
         };
 

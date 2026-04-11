@@ -78,7 +78,7 @@ function createRow(project: ProjectPreview) {
         }
 
         const td = document.createElement("td");
-        td.innerHTML = `<button class="remove-row-btn">Odstrani</button>`
+        td.innerHTML = `<button class="remove-row-btn">Remove</button>`
         row.appendChild(td);
 
         rowEvents(row, project);

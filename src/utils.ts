@@ -249,8 +249,8 @@ export async function hydrateApp() {
                 acc = null;
                 localStorage.removeItem('user_profile');
 
-                if (window.location.pathname !== '/login') {
-                        window.location.href = '/login';
+                if (window.location.pathname !== '/pages/login') {
+                        window.location.href = '/pages/login';
                 }
         }
 }

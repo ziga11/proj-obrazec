@@ -1,8 +1,8 @@
 import type { Account, Project, ProjectPreview } from "./types";
-// http://localhost:8080/
-/* https://proj-obrazec-backend.onrender.com */
+// http://localhost:8080/api /
+/* proj-obrazec-backend-production.up.railway.app/api */
 
-const BASE_URL = 'https://proj-obrazec-backend.onrender.com';
+const BASE_URL = 'proj-obrazec-backend-production.up.railway.app/api';
 
 export async function apiRequest<T>(endpoint: string, options: RequestInit = {}, retries = 5): Promise<T> {
         const url = `${BASE_URL}${endpoint}`;

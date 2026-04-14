@@ -22,7 +22,8 @@ async function handleCredentialResponse(response: any) {
         const token = response.credential;
 
         try {
-                await ProjectService.getOrCreateAcc(token);
+                console.log(token);
+                console.log(await ProjectService.getOrCreateAcc(token));
                 window.location.href = "/pages/list.html";
         }
         catch (err) {

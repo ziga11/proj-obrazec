@@ -243,6 +243,7 @@ export async function hydrateApp() {
         let acc: Account | null = null;
         try {
                 acc = await ProjectService.isLoggedIn();
+                console.log(acc);
 
                 localStorage.setItem('user_profile', JSON.stringify(acc));
         } catch (err) {

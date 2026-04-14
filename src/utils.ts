@@ -61,7 +61,6 @@ export function setVisibilityCheckbox(parentDiv: HTMLDivElement | HTMLTableCellE
 
         checkbox.addEventListener("change", () => {
                 if (checkbox.checked) {
-                        console.log(parentDiv, "shown");
                         visibilityDiv.classList.add("shown");
                 }
                 else {
@@ -138,8 +137,6 @@ function headingForms(heading: HTMLDivElement): Record<string, any> {
                         inputRecords[elem.id] = formRecord(elem);
                 }
                 else if (elem.value.trim().length > 0 || (elem.type == "button")) {
-                        console.log(elem);
-
                         const parentRecord = inputRecords[pInput.id] as Record<string, any>;
 
                         if (parentRecord.children === undefined) {
@@ -243,8 +240,6 @@ export async function hydrateApp() {
         let acc: Account | null = null;
         try {
                 acc = await ProjectService.isLoggedIn();
-                console.log(acc);
-
                 localStorage.setItem('user_profile', JSON.stringify(acc));
         } catch (err) {
                 acc = null;

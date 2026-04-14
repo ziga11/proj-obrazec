@@ -49,7 +49,6 @@ function processForm(heading: string, id: string, form: Form) {
                 if (id.includes("modal") || id.includes(".")) {
                         return;
                 }
-                console.log(heading, id, form);
                 createElement(heading, form);
 
                 htmlElement = document.querySelector(selector) as HTMLInputElement;
@@ -96,16 +95,16 @@ function processForm(heading: string, id: string, form: Form) {
 function createElement(heading: string, form: Form) {
         switch (heading) {
                 case "porocilo":
-                        addReportRow();
+                        addReportRow(PageOrigin.Modify);
                         break;
                 case "placa":
-                        addSalaryRow();
+                        addSalaryRow(PageOrigin.Modify);
                         break;
                 case "ocena_tveganja_za_delovno_mesto":
-                        addRiskRow();
+                        addRiskRow(PageOrigin.Modify);
                         break;
                 case "vloge_oseb":
-                        addClientRow();
+                        addClientRow(PageOrigin.Modify);
                         break;
                 default:
                         const headingElem = document.querySelector(`[data-group='${heading}']`) as HTMLDivElement;

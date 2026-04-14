@@ -37,10 +37,9 @@ modal.addFieldPopup.addEventListener("click", () => {
 form.addEventListener("submit", async (event: Event) => {
         event.preventDefault();
 
-        console.log(deltaFileMap);
         const projectId = await upsertProject(form, deltaFileMap);
 
-        // if (projectId != -1) {
-        //         window.location.href = `/pages/view.html?id=${projectId}`;
-        // }
+        if (projectId != -1) {
+                window.location.href = `/pages/view.html?id=${projectId}`;
+        }
 });

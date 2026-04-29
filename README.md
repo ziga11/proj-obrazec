@@ -17,7 +17,7 @@ This application serves as the primary data entry point for defining complex pro
 * **Specialized Logic Modules:** Custom inputs for complex data types like mileage reimbursement, medical restrictions, and multi-currency salary definitions.
 
 ## Previews
-![ER Diagram](/public/assets/er.jpg)
+![ER Diagram](/public/assets/readme/er.jpg)
 
 ### Demo
 <div align="center">

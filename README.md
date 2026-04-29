@@ -15,3 +15,13 @@ This application serves as the primary data entry point for defining complex pro
 * **Dynamic JSONB Structures:** Uses a flexible data model to handle nested requirements and complex form logic without database schema changes.
 * **Integrated Document Preview:** Built-in iframe viewer for managing and reviewing files stored in the cloud.
 * **Specialized Logic Modules:** Custom inputs for complex data types like mileage reimbursement, medical restrictions, and multi-currency salary definitions.
+
+## Previews
+![ER Diagram](/public/assets/er.jpg)
+
+### Demo
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/14452bcd-fa5e-450e-a2c7-96af4bd9145e" width="100%" controls muted>
+  </video>
+</div>
+

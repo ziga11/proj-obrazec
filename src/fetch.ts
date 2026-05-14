@@ -1,6 +1,6 @@
 import type { Account, ReceivedNotification, Project, ProjectPreview, InsertNotification } from "./types";
-// http://localhost:8080/api /
-/* proj-obrazec-backend-production.up.railway.app/api */
+// http://localhost:8080/api
+/* https://proj-obrazec-backend-production-4b0f.up.railway.app/api */
 
 const BASE_URL = 'https://proj-obrazec-backend-production-4b0f.up.railway.app/api';
 

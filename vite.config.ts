@@ -14,13 +14,5 @@ export default defineConfig({
                         },
                 },
         },
-        server: {
-                proxy: {
-                        '/api': {
-                                target: 'https://proj-obrazec-backend.onrender.com',
-                                changeOrigin: true
-                        }
-                }
-        }
 });
 

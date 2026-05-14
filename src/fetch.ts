@@ -2,9 +2,9 @@ import type { Account, ReceivedNotification, Project, ProjectPreview, InsertNoti
 // http://localhost:8080/api /
 /* proj-obrazec-backend-production.up.railway.app/api */
 
-const BASE_URL = 'proj-obrazec-backend-production.up.railway.app/api';
+const BASE_URL = 'proj-obrazec-backend-production-4b0f.up.railway.app/api';
 
-export async function apiRequest<T>(endpoint: string, options: RequestInit = {}, retries = 2): Promise<T> {
+export async function apiRequest<T>(endpoint: string, options: RequestInit = {}, retries = 4): Promise<T> {
         const url = `${BASE_URL}${endpoint}`;
 
         try {

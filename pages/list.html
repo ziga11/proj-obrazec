@@ -7,6 +7,8 @@
     <title>Seznam projektov</title>
     <link rel="stylesheet" href="/styles/list.css">
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script type="module" src="/src/list-projects/main.ts" defer></script>
 </head>
@@ -19,10 +21,16 @@
             <span class="chevron">▼</span>
         </button>
         <div class="user-dropdown" id="user-dropdown" style="display: none;">
-            <button class="logout-btn" id="logout-btn">Log Out</button>
+            <button class="user-dropdown-elem" id="notifications-btn" data-bs-toggle="modal"
+                data-bs-target="#notifications-modal">Notifications<svg hidden class="notification-btn-unread"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--pink)"
+                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="4"></circle>
+                </svg>
+            </button>
+            <button class="user-dropdown-elem" id="logout-btn">Log Out</button>
         </div>
     </div>
-    <!--     <a href="http://localhost:8080/api/auth/google">Auth</a> -->
 
     <div id="loader" class="loading-overlay" style="display: none;">
         <div class="spinner"></div>
@@ -31,7 +39,6 @@
     </div>
 
     <div class="project-page-layout">
-        <h1>Project List</h1>
         <div class="table-container">
             <table class="table table-borderless table-sm table-hover">
                 <thead>
@@ -50,6 +57,23 @@
         <button class="add-project-button" onclick="window.location.href='/pages/create.html'">
             Add Project
         </button>
+    </div>
+
+    <div id="notifications-modal" class="modal fade" tabindex="-1" role="dialog" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Notifications</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="notifications-modal-body" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <div class="me-auto"></div>
+                    <button type="button" class="default-btn close-modal" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

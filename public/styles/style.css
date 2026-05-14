@@ -45,8 +45,8 @@
 html,
 body {
         font-family: "Montserrat", sans-serif;
-        background: var(--primary-purple);
-        color: var(--white);
+        background: var(--primary-purple) !important;
+        color: var(--white) !important;
         min-height: 100vh;
         margin: 0;
         padding: 0;

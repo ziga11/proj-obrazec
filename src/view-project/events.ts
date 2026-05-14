@@ -1,9 +1,8 @@
-import { addUserToProject, showAddUserSection, showExistingUsersSection } from "../utils";
-import { editButton, fileModal, manageUsersModal } from "./html";
+import { addUserToProject, getProfile, showAddUserSection, showExistingUsersSection } from "../utils";
+import { editButton, fileModal, manageUsersModal, projectTitle } from "./html";
 
 const params = new URLSearchParams(window.location.search);
 const projectId = Number(params.get("id") as string);
-const creatorId = localStorage.getItem("creator_id");
 
 editButton.addEventListener("click", () => {
         window.location.href = `/pages/modify.html?id=${projectId}`
@@ -38,7 +37,12 @@ fileModal.download.addEventListener("click", async (e) => {
 
 const addUser = manageUsersModal.addUser;
 const existingUsers = manageUsersModal.existing;
+const profile = getProfile();
 
-addUser.sectionBtn.addEventListener("click", () => showAddUserSection());
-addUser.finishBtn.addEventListener("click", async () => addUserToProject(projectId, creatorId!));
-existingUsers.sectionBtn.addEventListener("click", async () => showExistingUsersSection(projectId, creatorId!));
+if (!profile) {
+        window.location.href = `/pages/login.html`
+} else {
+        addUser.sectionBtn.addEventListener("click", () => showAddUserSection());
+        addUser.finishBtn.addEventListener("click", async () => addUserToProject(projectId, profile!.id, projectTitle.innerText));
+        existingUsers.sectionBtn.addEventListener("click", async () => showExistingUsersSection(projectId, profile!.id));
+}

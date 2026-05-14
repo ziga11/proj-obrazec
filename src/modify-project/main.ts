@@ -109,8 +109,10 @@ function createElement(heading: string, form: Form) {
                 default:
                         const headingElem = document.querySelector(`[data-group='${heading}']`) as HTMLDivElement;
                         if (!form.children) {
-                                console.log(form, heading);
-
+                                if (!form.label) {
+                                        console.log(form, heading)
+                                        return;
+                                }
                                 addExtraFields({
                                         headElement: headingElem,
                                         label: form.label!,
@@ -122,6 +124,10 @@ function createElement(heading: string, form: Form) {
 
                                 const addFile = form.children[keys[0]].type === "file";
 
+                                if (!form.label) {
+                                        console.log(form, heading)
+                                        return;
+                                }
                                 addExtraFields({
                                         headElement: headingElem,
                                         label: form.label!,

@@ -1,10 +1,10 @@
-import type { Account, Project, ProjectPreview } from "./types";
+import type { Account, ReceivedNotification, Project, ProjectPreview, InsertNotification } from "./types";
 // http://localhost:8080/api /
 /* proj-obrazec-backend-production.up.railway.app/api */
 
-const BASE_URL = 'https://proj-obrazec-backend-production.up.railway.app/api';
+const BASE_URL = 'http://localhost:8080/api';
 
-export async function apiRequest<T>(endpoint: string, options: RequestInit = {}, retries = 5): Promise<T> {
+export async function apiRequest<T>(endpoint: string, options: RequestInit = {}, retries = 2): Promise<T> {
         const url = `${BASE_URL}${endpoint}`;
 
         try {
@@ -78,6 +78,26 @@ export const ProjectService = {
                 });
         },
 
+        async sendNotification(notification: InsertNotification) {
+                return apiRequest(`/send-notification`, {
+                        method: 'POST',
+                        body: JSON.stringify(notification)
+                });
+        },
+
+        async fetchNotifications(): Promise<Array<ReceivedNotification>> {
+                return apiRequest<Array<ReceivedNotification>>(`/list-notifications`, {
+                        method: 'POST',
+                });
+        },
+
+        async responseNotification(notification_id: number, state: string) {
+                return apiRequest(`/notification-response`, {
+                        method: 'POST',
+                        body: JSON.stringify({ notification_id, state })
+                });
+        },
+
         async fetchBlob(filePath: string): Promise<Blob> {
                 const cleanPath = filePath.startsWith('/') ? filePath : `/${filePath}`;
                 const url = `${BASE_URL}${cleanPath}`;
@@ -93,13 +113,6 @@ export const ProjectService = {
 
         async addedAccountsToProject(projectId: number): Promise<Array<Account>> {
                 return await apiRequest<Array<Account>>(`/project-accounts/${projectId}`);
-        },
-
-        async addUserToProject(projectId: number, email: string, permissionId: number): Promise<void> {
-                await apiRequest<{ projectId: number }>('/add-account-to-project', {
-                        method: 'POST',
-                        body: JSON.stringify({ "project_id": projectId, "email": email, "permission_id": permissionId }),
-                }, 0);
         },
 
         async removeUserFromProject(projectId: number, accountId: number): Promise<void> {

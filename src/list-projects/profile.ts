@@ -2,11 +2,11 @@ import { hydrateApp } from "../utils";
 
 await hydrateApp();
 
+const avatarImg = document.getElementById('user-avatar') as HTMLImageElement;
 const acc = JSON.parse(localStorage.getItem('user_profile') || '{}');
 
-document.getElementById('user-name')!.textContent = acc.name || 'User';
+document.getElementById('user-name')!.textContent = acc.name;
 
-const avatarImg = document.getElementById('user-avatar') as HTMLImageElement;
 
 if (acc.img_url) {
         avatarImg.onerror = () => {
@@ -56,8 +56,8 @@ document.getElementById('user-menu-btn')?.addEventListener('click', () => {
         }
 });
 
-document.addEventListener('click', (e) => {
-        const menu = document.getElementById('user-menu-btn');
+document.addEventListener('click', async (e) => {
+        const menu = document.getElementById('user-menu-btn') as HTMLButtonElement;
         const dropdown = document.getElementById('user-dropdown');
         if (!menu?.contains(e.target as Node) && !dropdown?.contains(e.target as Node)) {
                 dropdown!.style.display = 'none';

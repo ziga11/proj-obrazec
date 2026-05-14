@@ -172,7 +172,8 @@ export function addSalaryRow(pageOrigin: PageOrigin) {
 }
 
 export function addExtraFields(field: Field) {
-        if (!field.headElement || field.label.length == 0) {
+        if (!field.headElement || !field.label || field.label.length == 0) {
+                console.log(field)
                 return;
         }
 

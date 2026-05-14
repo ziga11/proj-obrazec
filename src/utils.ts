@@ -1,5 +1,5 @@
 import { ProjectService } from "./fetch";
-import type { Account, Form, Project } from "./types";
+import { projectPermission, type InsertNotification, type Account, type Form, type Project } from "./types";
 import { manageUsersModal, toastContainer } from "./view-project/html";
 
 export function createTableCell(className: string, type: string,
@@ -196,14 +196,15 @@ export async function upsertProject(form: HTMLFormElement, deltaFileMap: Map<str
         const originalBtnText = submitBtn.innerText;
 
         submitBtn.disabled = true;
-        submitBtn.innerText = "Shranjevanje podatkov...";
+        submitBtn.innerText = "Saving data...";
 
+        const acc = getProfile();
         const params = new URLSearchParams(window.location.search);
-        const projectId = Number(params.get("id"));
+        let projectId = Number(params.get("id"));
         const json = projectToJson();
         const title = json.osnovni_podatki.project.value;
 
-        if (title.length == 0) return -1;
+        if (title.length == 0 || !acc) return -1;
 
         /*TODO: ...*/
 
@@ -211,12 +212,13 @@ export async function upsertProject(form: HTMLFormElement, deltaFileMap: Map<str
                 id: projectId,
                 title,
                 json,
-                creator_id: 1
+                creator_id: acc.id,
+                permission_id: projectPermission.All
         };
 
         try {
                 const files = fileData(deltaFileMap);
-                const projectId = await ProjectService.upsert(project, files);
+                projectId = await ProjectService.upsert(project, files);
 
                 if (!projectId) {
                         alert("Error occurred when creating project");
@@ -249,6 +251,24 @@ export async function hydrateApp() {
                         window.location.href = '/pages/login';
                 }
         }
+}
+
+let cachedProfile: Account | null = null;
+
+export function getProfile(): Account | undefined {
+        if (cachedProfile) return cachedProfile;
+
+        const accString = localStorage.getItem("user_profile");
+        if (!accString) return;
+
+        const acc = JSON.parse(accString) as Account;
+        cachedProfile = acc;
+        return acc;
+}
+
+export function clearProfile() {
+        cachedProfile = null;
+        localStorage.removeItem("user_profile");
 }
 
 export function showToast(toastContainer: HTMLDivElement, message: string) {
@@ -290,7 +310,7 @@ export function showAddUserSection() {
         existingUsers.section.style.display = "none";
 }
 
-export async function addUserToProject(projectId: number, creatorId: string) {
+export async function addUserToProject(projectId: number, accId: number, projectTitle: string) {
         const addUser = manageUsersModal.addUser;
 
         const email = addUser.email.value.trim();
@@ -299,21 +319,32 @@ export async function addUserToProject(projectId: number, creatorId: string) {
 
         if ([email, permission].includes("")) {
                 showToast(toastContainer, "Email or Permission is empty");
+                return;
         }
 
+        const metadata = { project_id: projectId, permission: Number(permission) };
+
         try {
-                await ProjectService.addUserToProject(projectId, email, Number(permission));
-                showToast(toastContainer, `user (${email}) has been successfully added`);
-                showExistingUsersSection(projectId, creatorId);
+                const n = {
+                        type: "invite",
+                        from_acc_id: Number(accId),
+                        to_acc_email: email,
+                        content: `Inviting you to join the project ${projectTitle}`,
+                        metadata: JSON.stringify(metadata),
+                } as InsertNotification;
+
+                await ProjectService.sendNotification(n);
+
+                showToast(toastContainer, `Invitation to email: ${email} has been sent`);
                 addUser.email.value = "";
                 addUser.permission.value = "";
         }
-        catch (err) {
+        catch (err: any) {
                 showToast(toastContainer, `Adding user has failed ${err}`);
         }
 }
 
-export async function showExistingUsersSection(projectId: number, creatorId: string) {
+export async function showExistingUsersSection(projectId: number, creatorId: number) {
         const addUser = manageUsersModal.addUser;
         const existingUsers = manageUsersModal.existing;
 
@@ -323,7 +354,8 @@ export async function showExistingUsersSection(projectId: number, creatorId: str
 
         const accs = await ProjectService.addedAccountsToProject(projectId);
 
-        const currAcc = JSON.parse(localStorage.getItem('user_profile') || '{}');
+        const currAcc = getProfile();
+        if (!currAcc) return;
 
         existingUsers.section.innerHTML = "";
         for (const acc of accs) {
@@ -331,9 +363,11 @@ export async function showExistingUsersSection(projectId: number, creatorId: str
                 const accDiv = accountListing(acc, projectId, creatorId);
                 existingUsers.section.appendChild(accDiv);
         }
+
+        existingUsers.sectionBtn.checked = true;
 }
 
-function accountListing(acc: Account, projectId: number, creatorId: string): HTMLDivElement {
+function accountListing(acc: Account, projectId: number, creatorId: number): HTMLDivElement {
         const div = Object.assign(document.createElement("div"), {
                 className: "account-listing"
         });
@@ -348,7 +382,7 @@ function accountListing(acc: Account, projectId: number, creatorId: string): HTM
                 ProjectService.removeUserFromProject(projectId, acc.id);
                 div.remove();
         });
-        if (acc.id != Number(creatorId)) {
+        if (acc.id != creatorId) {
                 div.appendChild(deleteBtn);
         }
 

@@ -9,11 +9,12 @@ window.onload = () => {
         });
 
         google.accounts.id.renderButton(
-                document.getElementById("buttonDiv")!,
+                document.getElementById("button-div")!,
                 { type: "standard", theme: "filled_blue", size: "large", width: 300, }
         );
 
-        google.accounts.id.prompt();
+
+        // google.accounts.id.prompt();
 
         showInitialState();
 };
